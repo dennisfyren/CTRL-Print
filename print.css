@@ -1,0 +1,12 @@
+* {
+    
+}
+
+body {
+   font-size: smaller;
+}
+
+@page {
+    margin: 0;
+    padding: 0;
+}

@@ -11,11 +11,16 @@ function PrintPage(){
 let a = document.getElementById("contact");
 let b = document.getElementById("central-data");
 let c = document.getElementById("other");
+let d = document.getElementById("selector-contact");
+let e = document.getElementById("selector-facility");
+let f = document.getElementById("selector-other");
 
 a.classList.add("hide-content");
 b.classList.add("hide-content");
 c.classList.add("hide-content");
 a.classList.toggle("hide-content");
+d.classList.add("new-color");
+
 
 function SelectCategory(category){
 
@@ -25,17 +30,23 @@ function SelectCategory(category){
     a.classList.add("hide-content");
     b.classList.add("hide-content");
     c.classList.add("hide-content");
-    
+    d.classList.remove("new-color");
+    e.classList.remove("new-color");
+    f.classList.remove("new-color");
+ 
     switch(category){
         case 1: console.log("Kontakt")
             a.classList.toggle("hide-content");
+            d.classList.add("new-color");
             break;
         case 2: console.log("Anläggning")
             b.classList.toggle("hide-content");
+            e.classList.add("new-color");
             break;
         case 3: console.log("Övrigt")
             c.classList.toggle("hide-content");
+            f.classList.add("new-color");
             break;
     }
 }
-console.log("Hello World!")
+

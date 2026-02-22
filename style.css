@@ -2,7 +2,7 @@
     --main-bg-color-dark: #161B25FF;
     --main-color-1-dark: #393E46;
     --main-color-2-dark: #535964;
-    --main-color-3-dark: #DFD0B8;
+    --main-color-3-dark: #181a27;
 
     --main-bg-color-light: #89A8B2;
     --main-color-1-light: #B3C8CF;
@@ -14,7 +14,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+input:focus {
+    outline: none;
+}
 body {
     height: 100vh;
     width: 100vw;
@@ -211,49 +213,50 @@ a:hover{
 }
 .input-fields, .input-fields-central {
     margin: 1rem;
+    background-color: var(--main-color-3-dark);
     border: 0px solid var(--main-bg-color-dark);
     box-shadow: 5px 5px 15px var(--main-bg-color-dark);
     border-radius: 1rem;
     padding: 1rem;
     padding-left: 2rem;
     width: 30rem;
-}
-.input-fields-central {
-    width: 27rem;
-    height: 17.5rem;
+    font-weight: 500;
 }
 .input-fields > div, .input-fields-central > div {
-    color: var(--main-color-2-light);
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+   color: var(--main-color-2-light);
+    margin-bottom: 0.1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 .input-fields-central > div {
-    margin-bottom: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.input-fields > div > input, .input-fields-central > div > input{
-    font-size: 1rem;
-    color: var(--main-color-2-light);
-    background-color: var(--main-color-1-dark);
-    height: 2rem;
-    border: none;
-    border-radius: 0.3rem;
-    width: 13rem;
-    padding-left: 1rem;
-    margin-left: 2rem;
-    margin-top: 0.4rem;
-}
-.input-fields-central > div{
-    margin: 0;
+    display: flex;
+    flex-direction: row;
     font-size: 0.9rem;
-    height: 1.5rem;
+    margin: 0.3rem 0.3rem 0 0rem;
 }
 
-.input-fields-central > div > input {
-    height: 1.3rem;
+.input-fields > div > input, .input-fields-central > div > input {
+    font-size: 0.95rem;
+    color: var(--main-color-2-light);
+    background-color: var(--main-color-1-dark);
+    height: 2.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    width: 18rem;
+    padding-left: 1rem;
+    margin-left: 2rem;
+}
+.input-fields-central > div input, .input-fields-central > div label {
+    height: 1.5rem;
+   /* margin: 0.3rem 0.3rem 0 0rem; */
+}
+.input-fields-central > div input {
+    margin-left: auto;
+}
+.input-fields > div label {
+    position: relative;
+    top: 0.6rem;
+    left: 2.3rem;
 }
 .text-field-title {
     width: fit-content;
@@ -261,25 +264,39 @@ a:hover{
     top: -2rem;
     background-color: var(--main-color-1-dark);
     padding: 0.3rem 1rem 0.5rem 1rem;
-    border-radius: 1rem;  
+    border-radius: 0.4rem;  
 }
-.checkbox {
+.checkboxes {
     display: grid;
-    width: 17rem;
-    justify-items: end;
-    margin-top: 0.4rem;
+    grid-template-columns: 1fr 1fr;
+    flex-grow: 1;
 }
-.checkbox > input {
-    height: 1rem;
-    width: 1rem;
-    margin-top: 0.5rem;
-    margin-left: 1rem;
+.checkboxes > div > div {
+    display: flex;
+}
+.checkboxes > div {
+    margin-top: 0rem;
+    position: relative;
+    right: 4.8rem;
+}
+.checkboxes > div > div * {
+    margin: 0;
+    margin-left: 0.3rem;
+    padding-top: 0.15rem;
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: textfield;
 }
 #date {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
 }
 .hide-content {
     display: none;
+}
+.new-color {
+    background-color: var(--main-bg-color-dark);
 }
 
 

@@ -13,7 +13,7 @@
     <div class="content">
         <div class="header">
             <img src=".//logo.png">
-            <h1>CTRL+Print</h1>
+            <h1 href="index.html">CTRL+Print</h1>
         </div>
         <div class="main-document">
             <div class="main-content-document" id="printThis"> 
@@ -23,9 +23,9 @@
                     </div>
                     <div class="document-title">Revisionsprotokoll Brandlarm</div>
                     <div></div>
-                    <div class="categories" onclick="SelectCategory(1)">Kontaktuppgifter</div>
-                    <div class="categories" onclick="SelectCategory(2)">Anläggningsuppgifter</div>
-                    <div class="categories" onclick="SelectCategory(3)">Övrigt</div>
+                    <div class="categories" onclick="SelectCategory(1)" id="selector-contact">Kontaktuppgifter</div>
+                    <div class="categories" onclick="SelectCategory(2)" id="selector-facility">Anläggningsuppgifter</div>
+                    <div class="categories" onclick="SelectCategory(3)" id="selector-other">Övrigt</div>
                 </div>
                 <div class="content-container">
                         <div id="contact" class="content-container-child">
@@ -34,8 +34,8 @@
                                 <div id="date"><label>Datum:</label><input type="date"></div>
                                 <div><label>Kund:</label><input type="text"></div>
                                 <div><label>Kontaktperson:</label><input type="text"></div>
-                                <div><label>Telefonnummer:</label><input type="tel" placeholder="07x-xxx xx xx"></div>
-                                <div><label>E-postaddress:</label><input type="email"></div>
+                                <div><label>Telefonnummer:</label><input type="tel"></div>
+                                <div><label>E-post:</label><input type="email"></div>
                             </div>
                             <div id="facility-data" class="input-fields">
                                 <p class="text-field-title">Anläggningsdata</p>
@@ -45,9 +45,9 @@
                             </div>
                             <div id="installer-data"class="input-fields">
                                 <p class="text-field-title">Installatör</p>
-                                <div><label>Anläggning:</label><input type="text"></div>
-                                <div><label>Address:</label><input type="text"></div>
-                                <div><label>Objektnummer:</label><input type="text" placeholder="OBxxxxxx"></div>
+                                <div><label>Namn:</label><input type="text"></div>
+                                <div><label>Telefonnummer</label><input type="tel"></div>
+                                <div><label>E-post</label><input type="text"></div>
                             </div>
                                 
                         </div>
@@ -55,27 +55,63 @@
                             <div id="central-data" class="content-container-child">
                                 <div class="input-fields-central">
                                     <p class="text-field-title">Centralapparat</p>
-                                    <div><label>Centralapparat typ:</label><input type="text"></div>
-                                    <div><label>Antal sektioner:</label><input type="text"></div>
-                                    <div><label>Ackummulatorer:</label><input type="text"></div>
-                                    <div><label>Nästa batteribyte:</label><input type="text"></div>
-                                    <div><label>Laddspänning:</label><input type="text"></div>
-                                    <div><label>Display/Summer:</label><input type="text"></div>
-                                    <div><label>Datum:</label>
-                                        <div class="checkbox">
-                                            <label>OK<input type="checkbox"></label>
-                                            <label>Justerat tid<input type="checkbox"></label>
-                                            <label>Funktion<input type="checkbox"></label>
+                                    <div>
+                                        <label for="">Typ:</label>
+                                        <input type="text">
+                                    </div>
+                                    <div>
+                                        <label for="">Antal Sektioner:</label>
+                                        <input type="number">
+                                    </div>
+                                    <div class="checkbox-parent">
+                                        <div class="checkboxes">
+                                             <label class="checkbox-title">Batterier:</label>
+                                            <div>
+                                                <div>
+                                                    <input type="checkbox">
+                                                    <label>OK</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox">
+                                                    <label>Behov av åtgärd</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox">
+                                                    <label>Batteribyte utfört</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div>
+                                        <label for="">Nästa batteribyte:</label>
+                                        <input type="date">
+                                    </div>
+                                    <div>
+                                        <label for="">Antal och typ:</label>
+                                        <input type="text">
+                                    </div>
+                                    <div>
+                                        <label for="">Laddspänning:</label>
+                                        <input type="number">
+                                    </div>
+                                    <div class="checkbox-parent">
+                                        <div class="checkboxes">
+                                             <label class="checkbox-title">Display/Summer:</label>
+                                            <div>
+                                                <div>
+                                                    <input type="checkbox">
+                                                    <label>OK</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox">
+                                                    <label>Behov av åtgärd</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
-                                typ
-                                antal sektioner
-                                ackumulatorer, antal typ ok
-                                nästa batteribyte
-                                laddspänning
-                                display summer
-                                datum 
+                                
                             </div>
                         <div id="other"></div>
                     </div>

@@ -139,7 +139,8 @@ a:hover{
     padding-top: 0px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 15% 1fr;
+    grid-template-rows: 1fr 10fr;
+    overflow-y: scroll;
 }
 
 .main-document-head {
@@ -191,6 +192,10 @@ a:hover{
     margin: 0px 1rem 1rem 1rem;
     padding: 0 1rem 0 1rem;
     overflow-y: scroll;
+    font-weight: 200;
+}
+.hide-content {
+    display: none;
 }
 
 

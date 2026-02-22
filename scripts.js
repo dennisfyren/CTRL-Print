@@ -9,7 +9,7 @@ function PrintPage(){
     document.body.innerHTML = originalContent;
 }
 let a = document.getElementById("contact");
-let b = document.getElementById("facility");
+let b = document.getElementById("central-data");
 let c = document.getElementById("other");
 
 a.classList.add("hide-content");

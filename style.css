@@ -68,7 +68,7 @@ body {
     cursor: pointer;
 }
 #home::before {
-    background-image: url("/resources/home-1-svgrepo-com.svg");
+    background-image: url("resources/home-1-svgrepo-com.svg");
 }
 #create::before, #create-2::before {
     background-image: url("resources/edit-3-svgrepo-com.svg");
@@ -77,10 +77,10 @@ body {
     background-image: url("resources/save-svgrepo-com.svg");
 }
 #settings::before {
-    background-image: url("/resources/settings-svgrepo-com.svg");
+    background-image: url("resources/settings-svgrepo-com.svg");
 }
 #dark-mode::before {
-    background-image: url("/resources/moon-svgrepo-com.svg");
+    background-image: url("resources/moon-svgrepo-com.svg");
 }
 #load::before, #create::before {
     background-size: 60px 60px;

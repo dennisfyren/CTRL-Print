@@ -4,28 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTRL+Print</title>
-    <link rel="stylesheet" href="../style.css">
+    <link href="print.css" media="print" rel="stylesheet" @page {margin: 0;}/>
+    <link rel="stylesheet" href="../style.css" media="all">
     <script src="../scripts.js" defer></script>
 </head>
 <body>
     <div class="content">
         <div class="header">
-            <img src=".//logo.png">
+            
             <h1>CTRL+Print</h1>
         </div>
-        <div class="main">
-            <div class="main-content"> 
-                <div class="menu-buttons">
-                    <h1>Välj dokument</h1>
-                    <a href="brandlarm.html">Brandlarm</a>
-                    <a href="inbrottslarm.html">Inbrottslarm</a>
-                    <a href="ce.html">CE-Märkning</a>
+        <div>
+                <img src="/resources/menu-alt-2-svgrepo-com.svg" id="menu-button" onclick="ToggleSidenav()">
+                <aside class="sidenav" id="sidenav">
+                <a href="index.html" id="home">Start</a>
+                <p id="create-2" onclick="ToggleLinks(), ToggleSidenav()">Skapa Nytt</p>
+                <a href="" id="load-2">Ladda</a>
+                <a href="" id="settings">Inställningar</a>
+                <a href="" id="dark-mode">Mörkt Läge</a>
+                <p id="coming-soon"><em>(Kommer snart)</em></p>
+                </aside>
+        </div>
+        <div class="page-content">
+            <ul>
+                <li id="create" onclick="ToggleLinks()">Skapa</li>
+                <div id="hidden-links">
+                    <a href="brandlarm.html">
+                        <li class="hidden-links" id="first-link">Brandlarm</li>
+                    </a>
+                    <a href="inbrottslarm.html">
+                        <li class="hidden-links">Inbrottslarm</li>
+                    </a>
+                    <a href="ce.html">
+                        <li class="hidden-links">CE-Märkning</li>
+                    </a>
                 </div>
-            </div>       
+                <li id="load"><a href="">Ladda</a></li>
+            </ul>
         </div>
         <div class="footer">
-            <a href="../about.html">About</a>
-            <p>Made by Dennis Fyrén</p>  
+            <a href="about.html">About</a>
+            <p>v.0.1</p>
         </div>
     </div>
 </body>

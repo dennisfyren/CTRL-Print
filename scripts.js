@@ -1,4 +1,32 @@
+const sideNav = document.getElementById("sidenav");
+const menuButton = document.getElementById("menu-button");
+const hiddenLinks = document.getElementById("hidden-links");
+let menuOpen = 0;
+let linksOpen = 0;
 
+hiddenLinks.classList.add("show-links");
+
+function ToggleSidenav() {
+    if (menuOpen === 0){
+        sideNav.classList.add("toggle-sidenav");
+        menuButton.classList.add("move-button")
+        menuOpen = 1;
+    } else {
+        sideNav.classList.remove("toggle-sidenav");
+        menuButton.classList.remove("move-button");
+        menuOpen = 0;
+    }
+}
+function ToggleLinks() {
+    if (linksOpen === 0) {
+        console.log("Hello")
+        hiddenLinks.classList.remove("show-links");
+        linksOpen = 1;
+    } else {
+        hiddenLinks.classList.add("show-links");
+        linksOpen = 0;
+    }
+}
 
 function PrintPage(){
     const originalContent = document.body.innerHTML;

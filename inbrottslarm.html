@@ -7,101 +7,29 @@
     <link href="print.css" media="print" rel="stylesheet" @page {margin: 0;}/>
     <link rel="stylesheet" href="../style.css" media="all">
     <script src="../scripts.js" defer></script>
-    
 </head>
 <body>
     <div class="content">
         <div class="header">
-            <img src=".//logo.png">
+            
             <h1>CTRL+Print</h1>
         </div>
-        <div class="main-document">
-            <div class="main-content-document"> 
-                <div class="main-document-head" id="printThis">
-                    <div class="back-btn">
-                        <a href="index.html">Tillbaka</a>
-                    </div>
-                    <div class="document-title">Revisionsprotokoll Inbrottslarm</div>
-                    <div></div>
-                    <div class="categories">Kontaktuppgifter</div>
-                    <div class="categories">Anläggningsuppgifter</div>
-                    <div class="categories">Övrigt</div>
-                    <div class="content-container">
-                        <div id="contact" class="content-container-child">
-                            <div id="customer-data" class="input-fields">
-                                <p class="text-field-title">Kontaktuppgifter</p>
-                                <div id="date"><label>Datum:</label><input type="date"></div>
-                                <div><label>Kund:</label><input type="text"></div>
-                                <div><label>Kontaktperson:</label><input type="text"></div>
-                                <div><label>Telefonnummer:</label><input type="tel" placeholder="07x-xxx xx xx"></div>
-                                <div><label>E-postaddress:</label><input type="email"></div>
-                            </div>
-                            <div id="facility-data" class="input-fields">
-                                <p class="text-field-title">Anläggningsdata</p>
-                                <div><label>Anläggning:</label><input type="text"></div>
-                                <div><label>Address:</label><input type="text"></div>
-                                <div><label>Objektnummer:</label><input type="text" placeholder="OBxxxxxx"></div>
-                            </div>
-                            <div id="installer-data"class="input-fields">
-                                <p class="text-field-title">Installatör</p>
-                                <div><label>Anläggning:</label><input type="text"></div>
-                                <div><label>Address:</label><input type="text"></div>
-                                <div><label>Objektnummer:</label><input type="text" placeholder="OBxxxxxx"></div>
-                            </div>
-                                
-                        </div>
-                        <div id="facility"></div>
-                            <div id="central-data" class="content-container-child">
-                                <div class="input-fields-central">
-                                    <p class="text-field-title">Centralapparat</p>
-                                    
-                                        <div class="checkbox">
-                                            <div>
-                                                <input type="checkbox">
-                                                <label>OK</label>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div><label>Datum:</label>
-                                        <div class="checkbox">
-                                            <div>
-                                                <input type="checkbox" id="check-ok">
-                                                <label for="check-ok">OK</label>
-                                            </div>
-                                            <div>
-                                                <input type="checkbox" id="check-time">
-                                                <label>Justerat tid</label>  
-                                            </div>
-                                            <div>
-                                                <input type="checkbox" id="check-function">
-                                                <label>Saknar funktion</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                typ
-                                antal sektioner
-                                ackumulatorer, antal typ ok
-                                nästa batteribyte
-                                laddspänning
-                                display summer
-                                datum 
-                            </div>
-                        <div id="other"></div>
-                    </div>
-            </div>
-                </div>
-                <div class="content-container">
-                        <div id="">Content</div>
-                        <div>Content</div>
-                        <div>Content</div>
-                    </div>
-            </div>
-            
+        <div>
+                <img src="/resources/menu-alt-2-svgrepo-com.svg" id="menu-button" onclick="ToggleSidenav()">
+                <aside class="sidenav" id="sidenav">
+                <a href="index.html" id="home">Start</a>
+                <a href="" id="load-2">Ladda</a>
+                <a href="" id="settings">Inställningar</a>
+                <a href="" id="dark-mode">Mörkt Läge</a>
+                <p id="coming-soon"><em>(Kommer snart)</em></p>
+                </aside>
         </div>
-        <div class="footer-c">
-            <p>Made by Dennis Fyrén</p>  
+        <div class="page-content">
+            <p>Inbrottslarm</p>
+        </div>
+        <div class="footer">
+            <a href="index.html">Tillbaka</a>
+            <p>v.0.1</p>
         </div>
     </div>
 </body>

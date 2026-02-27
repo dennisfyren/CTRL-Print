@@ -19,6 +19,7 @@ let linksOpen = 0;
 
 function StoreData(){
     const fData = new FormData(form);
+    const docType = document.querySelector("#doc-type").textContent;
     console.log(fData); 
     
     //Add FormData to object
@@ -42,6 +43,7 @@ function StoreData(){
     
     let json = JSON.stringify(fDataObj);
     sessionStorage.setItem("data", json);
+    sessionStorage.setItem("doctype", docType);
 }
 
 hiddenLinks.classList.add("show-links");

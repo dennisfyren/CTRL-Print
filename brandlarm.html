@@ -26,8 +26,8 @@
                 </aside>
         </div>
         <div class="page-content">
-            <form action="summary.html" id="main-form">
-                <h3 onclick="ToggleInputGroup(0)">Revisionsprotokoll Brandlarm</h3>
+            <form action="summary-brandlarm.html" id="main-form">
+                <h3 onclick="ToggleInputGroup(0)" id="doc-type">Revisionsprotokoll Brandlarm</h3>
                     <div class="input-group" id="test-1">
                         <div>
                             <div>
@@ -37,6 +37,10 @@
                             <div>
                                 <label for="installer">Datum</label>
                                 <input type="date" id="date" name="date">
+                            </div>
+                            <div>
+                                <label for="location">Ort</label>
+                                <input type="text" id="location" name="location">
                             </div>
                         </div>
                         <div>
@@ -57,13 +61,14 @@
                         <input type="text" id="customer" name="customer">
                     </div>
                     <div>
-                        <label for="address">Address</label>
-                        <input type="text" id="adress" name="address">
-                    </div>
-                    <div>
                         <label for="facility">Anläggning</label>
                         <input type="text" id="facility" name="facility">
                     </div>
+                    <div>
+                        <label for="contact">Kontaktperson</label>
+                        <input type="text" id="contact" name="contact">
+                    </div>
+                    
                     <div>
                         <label for="workorder">Arbetsorder</label>
                         <input type="text" id="workorder" name="workorder" placeholder="S10xxxxxx">
@@ -104,6 +109,7 @@
                             <label><input type="radio" id="time-date-ok" name="time-date" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="time-date-adjust" name="time-date" value="Justerat Tid">Justerat tid</label>
                             <label><input type="radio" id="time-date-service" name="time-date" value="Åtgärd behövs">Åtgärd behövs</label>
+                            <label><input type="radio" id="time-date-missing" name="time-date" value="Funktion Saknas">Funktion Saknas</label>
                         </div>
                         <div>
                         <p>Notering</p>
@@ -238,9 +244,9 @@
                         <div>
                             <label for="or-sr">OR/SR-ritningar</label>
                             <div>
-                                <label><input type="radio" id="siren-ok" name="siren" value="Kontrollerad OK">Kontrollerad OK</label>
-                                <label><input type="radio" id="siren" name="siren" value="Åtgärd behövs">Åtgärd behövs</label>
-                                <label><input type="radio" id="siren-" name="siren" value="Ej aktuellt">Ej aktuellt</label>
+                                <label><input type="radio" id="schematic-ok" name="schematic" value="Kontrollerad OK">Kontrollerad OK</label>
+                                <label><input type="radio" id="schematic-service" name="schematic" value="Åtgärd behövs">Åtgärd behövs</label>
+                                <label><input type="radio" id="schematic-no" name="schematic" value="Ej aktuellt">Ej aktuellt</label>
                             </div>
                         </div>
                         <div>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTRL+Print</title>
+    <link href="print.css" media="print" rel="stylesheet" @page {margin: 0;}/>
+    <link rel="stylesheet" href="./print.css" media="all">
+    <script src="./print.js" defer></script>
+</head>
+<body>
+    <main class="main">
+        <header class="header">
+            <div class="logo">
+                <img src="/resources/home-1-svgrepo-com.svg" id="logo">
+            </div>
+            <h2 id="doc-type"></h2>
+        </header>
+        <div>
+            <section class="category" id="first">
+                <section class="sub-category">
+                 <div>
+                            <label>Kund:</label>
+                            <p data-key="customer"></p>
+                        </div>
+                        <div>
+                            <label>Anläggning:</label>
+                            <p data-key="facility"></p>
+                        </div>
+                        <div>
+                            <label>Kontaktperson:</label>
+                            <p data-key="contact"></p>
+                        </div>
+             </section>
+                <section class="sub-category">
+                    <div>
+                        <label>Utfört av:</label>
+                        <p data-key="installer"></p>
+                    </div>
+                    <div>
+                        <label>Typ av kontroll:</label>
+                        <p data-key="controltype"></p>
+                    </div>
+                    <div>
+                        <label>Utfört Datum:</label>
+                        <p data-key="date"></p>
+                    </div>
+                    <div>
+                        <label>Arbetsorder:</label>
+                        <p data-key="workorder"></p>
+                    </div>
+                    <div>
+                        <label>Objektnummer:</label>
+                        <p data-key="object"></p>
+                    </div>
+                </section>
+            </section>
+            
+            <section class="category">
+                <section class="sub-category">
+                    <h2>Centralapparat</h2>
+                    <div>
+                            <label>Typ av Central:</label>
+                            <p data-key="type"></p>
+                        </div>
+                        <div>
+                            <label>Antal sektioner:</label>
+                            <p data-key="alarmpoints"></p>
+                        </div>
+                        <div>
+                            <label>Laddspänning:</label>
+                            <p data-key="charge"></p>
+                            <p>V</p>
+                        </div>
+                        <div>
+                            <label>Version:</label>
+                            <p data-key="version"></p>
+                        </div>
+                        <div>
+                            <label>Display/Summer:</label>
+                            <p data-key="display"></p>
+                        </div>
+                        <div>
+                            <label>Tid och datum:</label>
+                            <p data-key="time-date"></p>
+                        </div>
+                        <div>
+                            <label>Notering:</label>
+                            <p data-key=""></p>
+                        </div>
+             </section>
+             <section class="sub-category">
+                    <h2>Dokumentation</h2>
+                    <div>
+                        <label>OR/SR ritningar:</label>
+                        <p data-key="schematic"></p>
+                    </div>
+                    <div>
+                        <label>Anläggarintyg:</label>
+                        <p data-key="certificate"></p>
+                    </div>
+                    <div>
+                        <label>Datum anläggarintyg:</label>
+                        <p data-key="certificate-date"></p>
+                    </div>
+                    <div>
+                        <label>Anläggningsskötarskylt:</label>
+                        <p data-key="service-sign"></p>
+                    </div>
+                    <div>
+                        <label>Notering:</label>
+                        <p data-key=""></p>
+                    </div>
+                </section>
+                <section class="sub-category">
+                    <h2>Prov sektion</h2>
+                    <div>
+                        <label>Stickprov sektion:</label>
+                        <p data-key="test-alarm"></p>
+                    </div>
+                    <div>
+                        <label>Status:</label>
+                        <p data-key="test-alarm-status"></p>
+                    </div>
+                    <div>
+                        <label>Notering:</label>
+                        <p data-key=""></p>
+                    </div>
+                </section>
+                <section class="sub-category">
+                    <h2>Prov larmdon och indikering</h2>
+                    <div>
+                        <label>Larmdon:</label>
+                        <p data-key="siren"></p>
+                    </div>
+                    <div>
+                        <label>Yttre larmdon:</label>
+                        <p data-key="out-siren"></p>
+                    </div>
+                    <div>
+                        <label>Notering:</label>
+                        <p data-key=""></p>
+                    </div>
+                </section>
+                <section class="sub-category">
+                    <h2>Prov utgångar och styrningar</h2>
+                    <div>
+                        <label>Dörrhållarmagneter:</label>
+                        <p data-key="magnets"></p>
+                    </div>
+                    <div>
+                        <label>Ventilationsstyrning:</label>
+                        <p data-key="ventilation"></p>
+                    </div>
+                    <div>
+                        <label>Övriga styrningar:</label>
+                        <p data-key="out-other"></p>
+                    </div>
+                    <div>
+                        <label>Notering:</label>
+                        <p data-key=""></p>
+                    </div>
+                </section>
+                <section class="sub-category">
+                    <h2>Prov larmöverföring</h2>
+                    <div>
+                        <label>Larmsändare typ:</label>
+                        <p data-key="send-type"></p>
+                    </div>
+                    <div>
+                        <label>Prov karaktär:</label>
+                        <p data-key="send-signals" class="array-display"></p>
+                    </div>
+                    <div>
+                        <label>Status:</label>
+                        <p data-key="send-ok"></p>
+                    </div>
+                    <div>
+                        <label>Notering:</label>
+                        <p data-key=""></p>
+                    </div>
+                </section>
+                <section class="sub-category">
+                    <h2>Ackumulatorer</h2>
+                    <div>
+                        <label>Kontroll batterier:</label>
+                        <p data-key="batteries"></p>
+                    </div>
+                    <div>
+                        <label>Antal och typ:</label>
+                        <p data-key="battery-type"></p>
+                    </div>
+                    <div>
+                        <label>Nästa batteribyte:</label>
+                        <p data-key="battery-change"></p>
+                    </div>
+                </section>
+                
+            </section>
+            <section class="category-end">
+                <div>
+                    <h2>Förbättringsförslag/Övrigt</h2>
+                    <p></p>
+                </div>
+            </section>
+        </div>
+        <button>Print!</button>
+        <footer class="footer">
+        <p data-key="date"></p>
+    </footer>
+    </main>
+    
+</body>
+</html>

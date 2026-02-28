@@ -4,6 +4,10 @@ const fData = JSON.parse(json);
 const docType = document.querySelector("#doc-type");
 docType.textContent = recieveDocType;
 
+function Print(){
+    window.print();
+}
+
 function GetElements(){
     const elements = document.getElementsByTagName("p");
     return Object.entries(elements);
@@ -18,5 +22,7 @@ function FillData(dataObject) {
         }
     });
 }
+
 FillData(fData);
+
 

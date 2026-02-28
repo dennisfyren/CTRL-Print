@@ -1,6 +1,10 @@
 const sideNav = document.getElementById("sidenav");
 const menuButton = document.getElementById("menu-button");
 const hiddenLinks = document.getElementById("hidden-links");
+let modeSelect;
+let currentUserName;
+let currentLogoPath;
+const change = "change";
 
 const form = document.querySelector("#main-form");
 
@@ -15,7 +19,6 @@ const categories = [document.getElementById("test-1"),
                     document.getElementById("test-9")];
 let menuOpen = 0;
 let linksOpen = 0;
-
 
 function StoreData(){
     const fData = new FormData(form);
@@ -81,13 +84,45 @@ function ToggleLinks() {
         linksOpen = 0;
     }
 }
+window.addEventListener("load", (LoadSettings()));
 
-function PrintPage(){
-    const originalContent = document.body.innerHTML;
-    const sectionContent = document.getElementById("printThis").outerHTML;
 
-    document.body.innerHTML = sectionContent;
-    window.print();
-    document.body.innerHTML = originalContent;
+function LoadSettings(){
+    modeSelect = localStorage.getItem("mode");
+    currentUserName = localStorage.getItem("name");
+    currentLogoPath = localStorage.getItem("logo");
+
+    const name = document.querySelector("#installer");
+    name.value = currentUserName;
 }
+
+function setTheme(mode) {
+    const body = document.querySelector("#set-theme");
+    console.log(mode);
+    if (mode === "dark"){
+        body.classList.add("dark");
+    } else if (mode === "change") {
+        if (modeSelect === "dark") {
+            localStorage.setItem("mode", "light");
+            location.reload();
+        } else {
+            localStorage.setItem("mode", "dark");
+            location.reload();
+        }
+    } else if (mode === "light") {
+        body.classList.remove("dark");
+    }
+}
+
+/*function setTheme(mode) {
+    const body = document.querySelector("#set-theme");
+    console.log(mode);
+    if (mode === "dark"){
+        body.classList.add("dark");
+    } else {
+        body.classList.remove("dark")
+    }
+}
+*/
+
 

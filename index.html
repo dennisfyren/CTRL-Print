@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css" media="all">
     <script src="./scripts.js" defer></script>
 </head>
-<body>
+<body id="set-theme" onload="setTheme(modeSelect)">
     <div class="content">
         <div class="header-index">
             
@@ -20,9 +20,8 @@
                 <a href="index.html" id="home">Start</a>
                 <p id="create-2" onclick="ToggleLinks(), ToggleSidenav()">Skapa Nytt</p>
                 <a href="" id="load-2">Ladda</a>
-                <a href="" id="settings">Inställningar</a>
-                <a href="" id="dark-mode">Mörkt Läge</a>
-                <p id="coming-soon"><em>(Kommer snart)</em></p>
+                <a href="settings.html" id="settings">Inställningar</a>
+                <a id="dark-mode" onclick="setTheme(change)">Ändra tema</a>
                 </aside>
         </div>
         <div class="page-content">

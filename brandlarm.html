@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css" media="all">
     <script src="./scripts.js" defer></script>
 </head>
-<body onload="ToggleInputGroup(0)">
+<body id="set-theme" onload="ToggleInputGroup(0), LoadSettings(), setTheme(modeSelect)">
     <div class="content">
         <div class="header">
             <a href="index.html">Tillbaka</a>
@@ -18,11 +18,8 @@
                 <img src="resources/menu-alt-2-svgrepo-com.svg" id="menu-button" onclick="ToggleSidenav()">
                 <aside class="sidenav" id="sidenav">
                 <a href="index.html" id="home">Start</a>
-                <a href="index.html" id="create-2">Skapa Nytt</a>
-                <a href="" id="load-2">Ladda</a>
-                <a href="" id="settings">Inställningar</a>
-                <a href="" id="dark-mode">Mörkt Läge</a>
-                <p id="coming-soon"><em>(Kommer snart)</em></p>
+                <a href="settings.html" id="settings">Inställningar</a>
+                <a onclick="setTheme(change)" id="dark-mode">Ändra tema</a>
                 </aside>
         </div>
         <div class="page-content">
@@ -274,7 +271,7 @@
                             <textarea id="document-comment" class="comment-field"></textarea>
                         </div>
                     </div>
-                    <div>
+                    <div id="improvements-div">
                         <p>Förbättringsförslag/Övrigt</p>
                         <textarea id="improvements" class="comment-field"></textarea>
                     </div>

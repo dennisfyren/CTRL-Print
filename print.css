@@ -7,6 +7,7 @@
 :root {
     --main-color-1: #F7F7FF;
     --main-color-2: #f97948;
+    --main-color-3: #252422;
 }
 body {
     height: 100vh;
@@ -33,6 +34,10 @@ label {
 }
 h2 {
     margin: 0 0 0.4rem 0;
+    font-size: 1.2rem;
+}
+.add-margin {
+    margin-top: 1rem;
 }
 #logo {
     height: 70px;
@@ -46,8 +51,7 @@ section div label {
 .category, .category-end {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    padding: 0 2.5rem 0.5rem 2.5rem;
+    padding: 0 1.3rem 0.5rem 1.3rem;
 }
 .category-end {
     margin-top: 0.4rem;
@@ -57,10 +61,8 @@ section div label {
 .sub-category {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin: 0.5rem 0.2rem 0rem 0.2rem;
     padding: 0.3rem 0.4rem 0.3rem 1rem;
-    box-shadow: 1px 1px 10px rgb(196, 196, 196);
     border-radius: 0 0 0.7rem 0;
 }
 .sub-category > div {
@@ -90,6 +92,12 @@ button {
     margin-bottom: 1rem;
     justify-self: center;
     cursor: pointer;
+}
+#first > section {
+    justify-content: center;
+}
+#first {
+        border-bottom: 2px solid var(--main-color-3);
 }
 @media print {
     button {

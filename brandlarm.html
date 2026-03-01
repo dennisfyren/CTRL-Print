@@ -95,14 +95,14 @@
                     </div>
                     <div>
                         <label for="display">Display/Summer</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="display-ok" name="display" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="display-service" name="display" value="Åtgärd behövs">Åtgärd behövs</label>
                         </div>
                     </div>
                     <div>
                         <label for="display">Tid och Datum</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="time-date-ok" name="time-date" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="time-date-adjust" name="time-date" value="Justerat Tid">Justerat tid</label>
                             <label><input type="radio" id="time-date-service" name="time-date" value="Åtgärd behövs">Åtgärd behövs</label>
@@ -118,14 +118,18 @@
                 <div class="input-group" id="test-4">
                     <div>
                         <label for="batteries">Kontroll av batterier</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="batteries" name="batteries" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="batteries" name="batteries" value="Byte utfört">Byte utfört</label>
                             <label><input type="radio" id="batteries" name="batteries" value="Åtgärd behövs">Åtgärd behövs</label>
                         </div>
                     </div>
                     <div>
-                        <label for="battery-type">Antal och typ</label>
+                        <label for="battery-type">Antal</label>
+                        <input type="number" id="battery-number" name="battery-number">
+                    </div>
+                    <div>
+                        <label for="battery-type">Typ</label>
                         <input type="text" id="battery-type" name="battery-type">
                     </div>
                     <div>
@@ -147,7 +151,7 @@
                         </div>
                     </div>
                     <div>
-                        <p>Övrigt</p>
+                        <p>Notering</p>
                         <textarea id="test-comment" class="comment-field"></textarea>
                     </div>
                 </div>
@@ -155,7 +159,7 @@
                 <div class="input-group" id="test-6">
                     <div>
                         <label for="siren">Larmdon</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="siren-ok" name="siren" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="siren-service" name="siren" value="Åtgärd behövs">Åtgärd behövs</label>
                             <label><input type="radio" id="siren-no" name="siren" value="Ej aktuellt">Ej aktuellt</label>
@@ -163,7 +167,7 @@
                     </div>
                     <div>
                         <label for="out-siren">Yttre larmdon</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="out-siren-ok" name="out-siren" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="out-siren-service" name="out-siren" value="Åtgärd behövs">Åtgärd behövs</label>
                             <label><input type="radio" id="out-siren-missing" name="out-siren" value="Saknas">Saknas</label>
@@ -179,7 +183,7 @@
                 <div class="input-group" id="test-7">
                     <div>
                         <label for="magnets">Dörrhållarmagneter</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="magnets-ok" name="magnets" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="magnets-service" name="magnets" value="Åtgärd behövs">Åtgärd behövs</label>
                             <label><input type="radio" id="magnets-missing" name="magnets" value="Saknas">Saknas</label>
@@ -188,7 +192,7 @@
                     </div>
                     <div>
                         <label for="ventilation">Ventilationsstyrning<em> Endast utgång</em></label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="ventilation-ok" name="ventilation" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="ventilation-service" name="ventilation" value="Åtgärd behövs">Åtgärd behövs</label>
                             <label><input type="radio" id="ventilation-missing" name="ventilation" value="Saknas">Saknas</label>
@@ -197,7 +201,7 @@
                     </div>
                     <div>
                         <label for="out-other">Övriga styrningar</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="out-other-ok" name="out-other" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="out-other-service" name="out-other" value="Åtgärd behövs">Åtgärd behövs</label>
                             <label><input type="radio" id="out-other-missing" name="out-other" value="Saknas">Saknas</label>
@@ -217,7 +221,7 @@
                     </div>
                     <div>
                         <label for="send-signals">Prov käraktär</label>
-                        <div>
+                        <div class="checkbox-collection">
                             <label><input type="checkbox" id="send-signals-alarm" name="send-signals" value="Brandlarm">Brandlarm</label>
                             <label><input type="checkbox" id="send-signals-fault" name="send-signals" value="Fellarm">Fellarm</label>
                             <label><input type="checkbox" id="send-signals-other" name="send-signals" value="Annan">Annan <em>Ange nedan</em></label>
@@ -226,7 +230,7 @@
                     </div>
                     <div>
                         <label for="send-ok">Status</label>
-                        <div>
+                        <div class="radio-collection">
                             <label><input type="radio" id="send-status-ok" name="send-ok" value="Kontrollerad OK">Kontrollerad OK</label>
                             <label><input type="radio" id="send-status-service" name="send-ok" value="Åtgärd behövs">Åtgärd behövs</label>
                         </div>
@@ -240,7 +244,7 @@
                     <div class="input-group" id="test-9">
                         <div>
                             <label for="or-sr">OR/SR-ritningar</label>
-                            <div>
+                            <div class="radio-collection">
                                 <label><input type="radio" id="schematic-ok" name="schematic" value="Kontrollerad OK">Kontrollerad OK</label>
                                 <label><input type="radio" id="schematic-service" name="schematic" value="Åtgärd behövs">Åtgärd behövs</label>
                                 <label><input type="radio" id="schematic-no" name="schematic" value="Ej aktuellt">Ej aktuellt</label>
@@ -248,7 +252,7 @@
                         </div>
                         <div>
                         <label for="certificate">Anläggarintyg</label>
-                            <div>
+                            <div class="radio-collection">
                                 <label><input type="radio" id="certificate-ok" name="certificate" value="Kontrollerad OK">Kontrollerad OK</label>
                                 <label><input type="radio" id="certificate-service" name="certificate" value="Åtgärd behövs">Åtgärd behövs</label>
                                 <label><input type="radio" id="certificate-missing" name="certificate" value="Saknas">Saknas</label>
@@ -261,7 +265,7 @@
                         </div>
                         <div>
                         <label for="service-sign">Anläggningsskötarskylt</label>
-                            <div>
+                            <div class="radio-collection">
                                 <label><input type="radio" id="service-sign-ok" name="service-sign" value="Kontrollerad OK">Kontrollerad OK</label>
                                 <label><input type="radio" id="service-sign-service" name="service-sign" value="Åtgärd behövs">Åtgärd behövs</label>
                             </div>

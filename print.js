@@ -3,6 +3,9 @@ const recieveDocType = sessionStorage.getItem("doctype");
 const fData = JSON.parse(json);
 const docType = document.querySelector("#doc-type");
 docType.textContent = recieveDocType;
+comments = sessionStorage.getItem("comments");
+let sortedComments = comments.split(",");
+
 
 function Print(){
     window.print();
@@ -22,7 +25,20 @@ function FillData(dataObject) {
         }
     });
 }
+function GoHome(){
+    document.location.href="index.html";
+}
 
 FillData(fData);
+document.querySelector("#central-comment").textContent = sortedComments[0];
+document.querySelector("#document-comment").textContent = sortedComments[5];
+document.querySelector("#test-comment").textContent = sortedComments[1];
+document.querySelector("#facility-comment").textContent = sortedComments[2];
+document.querySelector("#out-comment").textContent = sortedComments[3];
+document.querySelector("#send-comment").textContent = sortedComments[4];
+document.querySelector("#improvements").textContent = sortedComments[6];
+
+
+
 
 

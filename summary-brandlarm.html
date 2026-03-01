@@ -85,9 +85,9 @@
                             <label>Tid och datum:</label>
                             <p data-key="time-date"></p>
                         </div>
-                        <div>
+                        <div class="add-margin">
                             <label>Notering:</label>
-                            <p data-key=""></p>
+                            <p id="central-comment"></p>
                         </div>
              </section>
              <section class="sub-category">
@@ -108,9 +108,9 @@
                         <label>Anläggningsskötarskylt:</label>
                         <p data-key="service-sign"></p>
                     </div>
-                    <div>
+                    <div class="add-margin">
                         <label>Notering:</label>
-                        <p data-key=""></p>
+                        <p id="document-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
@@ -123,9 +123,9 @@
                         <label>Status:</label>
                         <p data-key="test-alarm-status"></p>
                     </div>
-                    <div>
+                    <div class="add-margin">
                         <label>Notering:</label>
-                        <p data-key=""></p>
+                        <p id="test-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
@@ -138,9 +138,9 @@
                         <label>Yttre larmdon:</label>
                         <p data-key="out-siren"></p>
                     </div>
-                    <div>
+                    <div class="add-margin">
                         <label>Notering:</label>
-                        <p data-key=""></p>
+                        <p id="facility-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
@@ -157,9 +157,9 @@
                         <label>Övriga styrningar:</label>
                         <p data-key="out-other"></p>
                     </div>
-                    <div>
+                    <div class="add-margin">
                         <label>Notering:</label>
-                        <p data-key=""></p>
+                        <p id="out-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
@@ -176,9 +176,9 @@
                         <label>Status:</label>
                         <p data-key="send-ok"></p>
                     </div>
-                    <div>
+                    <div class="add-margin">
                         <label>Notering:</label>
-                        <p data-key=""></p>
+                        <p id="send-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
@@ -189,6 +189,8 @@
                     </div>
                     <div>
                         <label>Antal och typ:</label>
+                        <p data-key="battery-number"></p>
+                        <p>x</p>
                         <p data-key="battery-type"></p>
                     </div>
                     <div>
@@ -196,19 +198,17 @@
                         <p data-key="battery-change"></p>
                     </div>
                 </section>
+                <section class="sub-category">
+                     <h2>Förbättringsförslag/Övrigt</h2>
+                    <div class="add-margin">
+                        <p id="improvements"></p>
+                    </div>
+            </section>
                 
             </section>
-            <section class="category-end">
-                <div>
-                    <h2>Förbättringsförslag/Övrigt</h2>
-                    <p></p>
-                </div>
-            </section>
         </div>
+        <button onclick="window.history.go(-1);">Redigera</button>
         <button onclick="Print()">Print!</button>
-        <footer class="footer">
-        <p data-key="date"></p>
-    </footer>
     </main>
     
 </body>

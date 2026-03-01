@@ -38,7 +38,7 @@ document.querySelector("#out-comment").textContent = sortedComments[3];
 document.querySelector("#send-comment").textContent = sortedComments[4];
 document.querySelector("#improvements").textContent = sortedComments[6];
 
-
+Print();
 
 
 

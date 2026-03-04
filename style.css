@@ -275,6 +275,7 @@ li {
 }
 .footer > p {
     margin-left: auto;
+    color: var(--main-color-1);
 }
 .about-text {
     text-align: center;

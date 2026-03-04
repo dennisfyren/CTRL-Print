@@ -177,6 +177,7 @@ function setTheme(mode) {
         }
     } else if (mode === "light") {
         body.classList.remove("dark");
+        body.classList.add("light");
     }
 
 }

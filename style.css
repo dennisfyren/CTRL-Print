@@ -111,7 +111,7 @@ a:link, a:visited, a {
 }
 body {
     height: 100vh;
-    --main-color-1: #F7F7FF;
+    /* --main-color-1: #F7F7FF;
     --main-color-2: #577399;
     --main-color-3: #BEDFEB;
     --main-color-4: #252422;
@@ -119,7 +119,7 @@ body {
     --main-color-6: #ffffff;
     --main-color-7: #577399;
     --main-color-8: #f97948;
-    --svg-hue-1: brightness(0) saturate(100%) invert(10%) sepia(8%) saturate(379%) hue-rotate(2deg) brightness(98%) contrast(90%);
+    --svg-hue-1: brightness(0) saturate(100%) invert(10%) sepia(8%) saturate(379%) hue-rotate(2deg) brightness(98%) contrast(90%); */
 }
 li {
     color: var(--main-color-4);

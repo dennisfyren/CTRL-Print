@@ -9,17 +9,19 @@
     --main-color-2: #f97948;
     --main-color-3: #252422;
 }
+/* FIX THIS TONIGHT */
+html, body {
+    height:297mm;
+    width:210mm;
+}
 body {
-    height: 100vh;
       -webkit-print-color-adjust:exact !important;
         print-color-adjust:exact !important;
-
 }
 main {
     height: 100%;
     display: grid;
     grid-template-rows: 100px 1fr 50px;
-    
 }
 label {
     font-weight: 700;
@@ -29,8 +31,6 @@ label {
     grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
     margin-top: 1rem;
-    justify-content: center;
-    align-items: center;
 }
 h2 {
     margin: 0 0 0.4rem 0;
@@ -42,24 +42,18 @@ h2 {
 #logo {
     height: 70px;
     width: 70px;
-    align-items: center;
 }
 section div label {
     margin-right: 0.5rem;
 }
 .category, .category-end {
-    display: grid;
-    grid-template-columns: 1fr;
     padding: 0 1.3rem 0.5rem 1.3rem;
 }
 .category-end {
     margin-top: 0.4rem;
     border: none;
 }
-
 .sub-category {
-    display: flex;
-    flex-direction: column;
     margin: 0.2rem 1rem 0rem 1rem;
     padding: 0.2rem 0.4rem 0rem 1rem;
     border: 2px solid var(--main-color-3);
@@ -75,15 +69,7 @@ section div label {
 .margin-top {
     margin-top: 1rem;
 }
-.footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-#sign {
-   align-self: flex-end;
-   margin-left: 7rem;
-}
+
 button {
     border: 1px solid var(--main-color-2);
     border-radius: 0.3rem;
@@ -106,6 +92,7 @@ button {
 }
 #first > section > div > * {
     margin: 0rem;
+    margin-left: 0.5rem;
 }
 @media print {
     button {
@@ -116,4 +103,5 @@ button {
 @page {
     margin: 0;
     padding: 0;
+    
 }

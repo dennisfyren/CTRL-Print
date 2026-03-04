@@ -20,37 +20,6 @@ const categories = [document.getElementById("test-1"),
 let menuOpen = 0;
 let linksOpen = 0;
 
-// function StoreData(){
-//     const fData = new FormData(form);
-//     const docType = document.querySelector("#doc-type").textContent;
-//     console.log(fData); 
-    
-//     //Add FormData to object
-//     const fDataObj = {};
-//     fData.forEach((value, key) => {
-//         if(!Reflect.has(fDataObj, key)) {
-//             fDataObj[key] = value;
-//             return;
-//         }
-//         if (!Array.isArray(fData[key])){
-//             fDataObj[key] = [fDataObj[key]];
-//         }
-//         fDataObj[key].push(value);
-//     });
-//     //Filter data before send.
-//     for(let item in fDataObj) {
-//         if (fDataObj[item] === null || fDataObj[item] === undefined || fDataObj[item] === ""){
-//             delete fDataObj[item];
-//         }
-//     }
-    
-//     let json = JSON.stringify(fDataObj);
-//     sessionStorage.setItem("data", json);
-//     sessionStorage.setItem("doctype", docType);
-// }
-
-
-
 function StoreData(){
     const fData = new FormData(form);
     const docType = document.querySelector("#doc-type").textContent;
@@ -67,37 +36,16 @@ function StoreData(){
         }
         fDataObj[key].push(value);
     });
-    //Filter data before send.
+    
+    //Filter data before sending to sessionStorage.
     for(let item in fDataObj) {
         if (fDataObj[item] === null || fDataObj[item] === undefined || fDataObj[item] === ""){
             delete fDataObj[item];
         }
     }
     
-    let json = JSON.stringify(fDataObj);
-    sessionStorage.setItem("data", json);
+    sessionStorage.setItem("data", JSON.stringify(fDataObj));
     sessionStorage.setItem("doctype", docType);
-
-    // const centralComment = document.querySelector("#central-comment").value;
-    // sessionStorage.setItem("central-comment", centralComment);
-
-    // const testComment = document.querySelector("#test-comment").value;
-    // sessionStorage.setItem("test-comment", testComment);
-
-    // const facilityComment = document.querySelector("#facility-comment").value;
-    // sessionStorage.setItem("facility-comment", facilityComment);
-
-    // const outComment = document.querySelector("#out-comment").value;
-    // sessionStorage.setItem("out-comment", outComment);
-
-    // const sendComment = document.querySelector("#send-comment").value;
-    // sessionStorage.setItem("send-comment", sendComment);
-
-    // const documentComment = document.querySelector("#document-comment").value;
-    // sessionStorage.setItem("document-comment", documentComment);
-
-    // const improvements = document.querySelector("#improvements").value;
-    // sessionStorage.setItem("improvements", improvements);
 
     const comments = [
         document.querySelector("#central-comment").value,
@@ -106,14 +54,11 @@ function StoreData(){
         document.querySelector("#out-comment").value,
         document.querySelector("#send-comment").value,
         document.querySelector("#document-comment").value,
-        document.querySelector("#improvements").value
+        document.querySelector("#improvements").value,
+        document.querySelector("#send-signals-comment").value,
     ]
-    sessionStorage.setItem("comments", comments);
+    sessionStorage.setItem("comments", JSON.stringify(comments));
 }
-
-
-
-
 
 hiddenLinks.classList.add("show-links");
 function pause (milliseconds) {
@@ -124,12 +69,23 @@ function ToggleSidenav() {
         sideNav.classList.add("toggle-sidenav");
         menuButton.classList.add("move-button")
         menuOpen = 1;
-    } else {
+    } else if (menuOpen === 1){
         sideNav.classList.remove("toggle-sidenav");
         menuButton.classList.remove("move-button");
         menuOpen = 0;
+    } else {
+        console.log("Something went wrong...");
+        return;
     }
 }
+function CloseSideNav(){
+    if (menuOpen === 1){
+        sideNav.classList.remove("toggle-sidenav");
+        menuButton.classList.remove("move-button");
+        menuOpen = 0;
+    } 
+}
+
 async function ToggleInputGroup(categoryNumber) {
     
     //Close all tabs before opening next.
@@ -142,7 +98,6 @@ async function ToggleInputGroup(categoryNumber) {
 }
 function ToggleLinks() {
     if (linksOpen === 0) {
-        console.log("Hello")
         hiddenLinks.classList.remove("show-links");
         linksOpen = 1;
     } else {
@@ -164,13 +119,12 @@ function LoadSettings(){
 
 function setTheme(mode) {
     const body = document.querySelector("#set-theme");
-    console.log(mode);
     if (mode === "dark"){
         body.classList.add("dark");
     } else if (mode === "change") {
         if (modeSelect === "dark") {
             localStorage.setItem("mode", "light");
-            location.reload();
+             location.reload();
         } else {
             localStorage.setItem("mode", "dark");
             location.reload();

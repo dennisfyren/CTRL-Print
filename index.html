@@ -19,12 +19,12 @@
                 <aside class="sidenav" id="sidenav">
                 <a href="index.html" id="home">Start</a>
                 <p id="create-2" onclick="ToggleLinks(), ToggleSidenav()">Skapa Nytt</p>
-                <a href="" id="load-2">Ladda</a>
+                <!-- <a href="" id="load-2">Ladda</a> -->
                 <a href="settings.html" id="settings">Inställningar</a>
                 <a id="dark-mode" onclick="setTheme(change)">Ändra tema</a>
                 </aside>
         </div>
-        <div class="page-content">
+        <div class="page-content" onclick="CloseSideNav()">
             <ul>
                 <li id="create" onclick="ToggleLinks()">Skapa</li>
                 <div id="hidden-links">
@@ -38,7 +38,7 @@
                         <li class="hidden-links">CE-Märkning</li>
                     </a>
                 </div>
-                <li id="load"><a href="">Ladda</a></li>
+                <!-- <li id="load"><a href="">Ladda</a></li> -->
             </ul>
         </div>
         <div class="footer">

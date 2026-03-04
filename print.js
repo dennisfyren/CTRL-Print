@@ -3,8 +3,9 @@ const recieveDocType = sessionStorage.getItem("doctype");
 const fData = JSON.parse(json);
 const docType = document.querySelector("#doc-type");
 docType.textContent = recieveDocType;
-comments = sessionStorage.getItem("comments");
-let sortedComments = comments.split(",");
+
+const jsonComments = sessionStorage.getItem("comments");
+const sortedComments = JSON.parse(jsonComments);
 
 
 function Print(){
@@ -37,6 +38,7 @@ document.querySelector("#facility-comment").textContent = sortedComments[2];
 document.querySelector("#out-comment").textContent = sortedComments[3];
 document.querySelector("#send-comment").textContent = sortedComments[4];
 document.querySelector("#improvements").textContent = sortedComments[6];
+document.querySelector("#send-signals-comment").textContent = sortedComments [7];
 
 Print();
 

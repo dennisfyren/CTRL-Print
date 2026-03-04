@@ -18,10 +18,14 @@
             </div>
             <h2 id="doc-type"></h2>
         </header>
-        <div>
+        <aside class="nav">
+            <button onclick="window.history.go(-1);">Redigera</button>
+        <button onclick="Print()">Print!</button>
+        </aside>
+        <div class="main-content">
             <section class="category" id="first">
                 <section class="sub-category">
-                 <div>
+                    <div>
                             <label>Kund:</label>
                             <p data-key="customer"></p>
                         </div>
@@ -47,14 +51,14 @@
                         <label>Utfört Datum:</label>
                         <p data-key="date"></p>
                     </div>
-                    <div>
+                    <!-- <div>
                         <label>Arbetsorder:</label>
                         <p data-key="workorder"></p>
                     </div>
                     <div>
                         <label>Objektnummer:</label>
                         <p data-key="object"></p>
-                    </div>
+                    </div> -->
                 </section>
             </section>
             
@@ -155,6 +159,7 @@
                     <div>
                         <label>5.2 - Prov karaktär:</label>
                         <p data-key="send-signals" class="array-display"></p>
+                        <p id="send-signals-comment"> </p>
                     </div>
                     <div>
                         <label>5.3 - Status:</label>
@@ -176,6 +181,7 @@
                         <p data-key="battery-number"></p>
                         <p>x</p>
                         <p data-key="battery-type"></p>
+                        <p>Ah</p>
                     </div>
                     <div>
                         <label>6.3 - Nästa batteribyte:</label>
@@ -214,8 +220,6 @@
                 
             </section>
         </div>
-        <button onclick="window.history.go(-1);">Redigera</button>
-        <button onclick="Print()">Print!</button>
     </main>
     
 </body>

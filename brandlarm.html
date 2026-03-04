@@ -15,12 +15,7 @@
             <h1>CTRL+Print</h1>
         </div>
         <div>
-                <img src="resources/menu-alt-2-svgrepo-com.svg" id="menu-button" onclick="ToggleSidenav()">
-                <aside class="sidenav" id="sidenav">
-                <a href="index.html" id="home">Start</a>
-                <a href="settings.html" id="settings">Inställningar</a>
-                <a onclick="setTheme(change)" id="dark-mode">Ändra tema</a>
-                </aside>
+               
         </div>
         <div class="page-content">
             <form action="summary-brandlarm.html" id="main-form">
@@ -64,15 +59,6 @@
                     <div>
                         <label for="contact">Kontaktperson</label>
                         <input type="text" id="contact" name="contact">
-                    </div>
-                    
-                    <div>
-                        <label for="workorder">Arbetsorder</label>
-                        <input type="text" id="workorder" name="workorder" placeholder="S10xxxxxx">
-                    </div>
-                    <div>
-                        <label for="object">Objekt</label>
-                        <input type="text" id="object" name="object" placeholder="OB0xxxxx">
                     </div>
                 </div>
                 <h4 onclick="ToggleInputGroup(2)">Centralapparat</h4>
@@ -129,12 +115,13 @@
                         </div>
                     </div>
                     <div>
-                        <label for="battery-type">Antal</label>
+                        <label for="battery-type">Antal <em>x</em></label>
                         <input type="number" id="battery-number" name="battery-number">
                     </div>
                     <div>
-                        <label for="battery-type">Typ</label>
+                        <label for="battery-type">Typ <em>Ah</em></label>
                         <input type="text" id="battery-type" name="battery-type">
+                        
                     </div>
                     <div>
                         <label for="battery-change">Nästa batteribyte</label>
@@ -226,9 +213,9 @@
                     <div>
                         <label for="send-signals">Prov käraktär</label>
                         <div class="checkbox-collection">
-                            <label><input type="checkbox" id="send-signals-alarm" name="send-signals" value="Brandlarm">Brandlarm</label>
-                            <label><input type="checkbox" id="send-signals-fault" name="send-signals" value="Fellarm">Fellarm</label>
-                            <label><input type="checkbox" id="send-signals-other" name="send-signals" value="Annan">Annan <em>Ange nedan</em></label>
+                            <label><input type="checkbox" id="send-signals-alarm" name="send-signals" value=" Brandlarm">Brandlarm</label>
+                            <label><input type="checkbox" id="send-signals-fault" name="send-signals" value=" Fellarm">Fellarm</label>
+                            <label><input type="checkbox" id="send-signals-other" name="send-signals" value="&nbsp;">Annan <em>Ange nedan</em></label>
                             <textarea id="send-signals-comment" class="comment-field"></textarea>
                         </div>
                     </div>

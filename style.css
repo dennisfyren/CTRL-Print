@@ -1,25 +1,25 @@
 
 .light {
-    --main-color-1: #F7F7FF;
-    --main-color-2: #577399;
-    --main-color-3: #BEDFEB;
-    --main-color-4: #252422;
-    --main-color-5: #495867;
-    --main-color-6: #ffffff;
-    --main-color-7: #577399;
-    --main-color-8: #f97948;
-    --svg-hue-1: brightness(0) saturate(100%) invert(10%) sepia(8%) saturate(379%) hue-rotate(2deg) brightness(98%) contrast(90%);
+    --main-color-1: #FFFFFF;
+    --main-color-2: #6366F1;
+    --main-color-3: #A78BFA;
+    --main-color-4: #1F2937;
+    --main-color-5: #374151;
+    --main-color-6: #FFFFFF;
+    --main-color-7: #6366F1;
+    --main-color-8: #F59E0B;
+    --svg-hue-1: brightness(0) saturate(100%) invert(14%) sepia(88%) saturate(1247%) hue-rotate(228deg) brightness(101%) contrast(106%);
 }
 .dark {
-    --main-color-1: #0d1b2a;
-    --main-color-2: #577399;
-    --main-color-3: #BEDFEB;
-    --main-color-4: #e0e1dd;
-    --main-color-5: #415a77;
-    --main-color-6: #6f7986;
-    --main-color-7: #577399;
-    --main-color-8: #f97948;
-    --svg-hue-1: invert(50%) sepia(1%) saturate(0%) hue-rotate(26deg) brightness(180%) contrast(100%);
+    --main-color-1: #111827;
+    --main-color-2: #818CF8;
+    --main-color-3: #C4B5FD;
+    --main-color-4: #F3F4F6;
+    --main-color-5: #E5E7EB;
+    --main-color-6: #1F2937;
+    --main-color-7: #818CF8;
+    --main-color-8: #F59E0B;
+    --svg-hue-1: invert(94%) sepia(2%) saturate(645%) hue-rotate(190deg) brightness(108%) contrast(101%);
 }
 
 

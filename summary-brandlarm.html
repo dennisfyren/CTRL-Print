@@ -13,7 +13,8 @@
     <main class="main">
         <header class="header">
             <div class="logo">
-                <img src="resources/home-1-svgrepo-com.svg" id="logo">
+                <!-- <img src="resources/home-1-svgrepo-com.svg" id="logo"> -->
+                 <h1>Certego</h1>
             </div>
             <h2 id="doc-type"></h2>
         </header>
@@ -59,147 +60,153 @@
             
             <section class="category">
                 <section class="sub-category">
-                    <h2>Centralapparat</h2>
+                    <h2>1. Centralapparat</h2>
                     <div>
-                            <label>Typ av Central:</label>
+                            <label>1.1 - Typ av Central:</label>
                             <p data-key="type"></p>
                         </div>
                         <div>
-                            <label>Antal sektioner:</label>
+                            <label>1.2 - Antal sektioner:</label>
                             <p data-key="alarmpoints"></p>
                         </div>
                         <div>
-                            <label>Laddspänning:</label>
+                            <label>1.3 - Laddspänning:</label>
                             <p data-key="charge"></p>
                             <p>V</p>
                         </div>
                         <div>
-                            <label>Version:</label>
+                            <label>1.4 - Strömförbrukning:</label>
+                            <p data-key="current"></p>
+                            <p>mA</p>
+                        </div>
+                        <div>
+                            <label>1.5 - Version:</label>
                             <p data-key="version"></p>
                         </div>
                         <div>
-                            <label>Display/Summer:</label>
+                            <label>1.6 - Display/Summer:</label>
                             <p data-key="display"></p>
                         </div>
                         <div>
-                            <label>Tid och datum:</label>
+                            <label>1.7 - Tid och datum:</label>
                             <p data-key="time-date"></p>
                         </div>
                         <div class="add-margin">
-                            <label>Notering:</label>
+                            <label>1.8 - Notering:</label>
                             <p id="central-comment"></p>
                         </div>
              </section>
-             <section class="sub-category">
-                    <h2>Dokumentation</h2>
-                    <div>
-                        <label>OR/SR ritningar:</label>
-                        <p data-key="schematic"></p>
-                    </div>
-                    <div>
-                        <label>Anläggarintyg:</label>
-                        <p data-key="certificate"></p>
-                    </div>
-                    <div>
-                        <label>Datum anläggarintyg:</label>
-                        <p data-key="certificate-date"></p>
-                    </div>
-                    <div>
-                        <label>Anläggningsskötarskylt:</label>
-                        <p data-key="service-sign"></p>
-                    </div>
-                    <div class="add-margin">
-                        <label>Notering:</label>
-                        <p id="document-comment"></p>
-                    </div>
-                </section>
+             
                 <section class="sub-category">
-                    <h2>Prov sektion</h2>
+                    <h2>2. Prov sektion</h2>
                     <div>
-                        <label>Stickprov sektion:</label>
+                        <label>2.1 - Stickprov sektion:</label>
                         <p data-key="test-alarm"></p>
                     </div>
                     <div>
-                        <label>Status:</label>
+                        <label>2.2 - Status:</label>
                         <p data-key="test-alarm-status"></p>
                     </div>
                     <div class="add-margin">
-                        <label>Notering:</label>
+                        <label>2.3 - Notering:</label>
                         <p id="test-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
-                    <h2>Prov larmdon och indikering</h2>
+                    <h2>3. Prov larmdon och indikering</h2>
                     <div>
-                        <label>Larmdon:</label>
+                        <label>3.1 - Larmdon:</label>
                         <p data-key="siren"></p>
                     </div>
                     <div>
-                        <label>Yttre larmdon:</label>
+                        <label>3.2 - Yttre larmdon:</label>
                         <p data-key="out-siren"></p>
                     </div>
                     <div class="add-margin">
-                        <label>Notering:</label>
+                        <label>3.3 - Notering:</label>
                         <p id="facility-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
-                    <h2>Prov utgångar och styrningar</h2>
+                    <h2>4. Prov utgångar och styrningar</h2>
                     <div>
-                        <label>Dörrhållarmagneter:</label>
+                        <label>4.1 - Dörrhållarmagneter:</label>
                         <p data-key="magnets"></p>
                     </div>
                     <div>
-                        <label>Ventilationsstyrning:</label>
+                        <label>4.2 - Ventilationsstyrning:</label>
                         <p data-key="ventilation"></p>
                     </div>
                     <div>
-                        <label>Övriga styrningar:</label>
+                        <label>4.3 - Övriga styrningar:</label>
                         <p data-key="out-other"></p>
                     </div>
                     <div class="add-margin">
-                        <label>Notering:</label>
+                        <label>4.4 - Notering:</label>
                         <p id="out-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
-                    <h2>Prov larmöverföring</h2>
+                    <h2>5. Prov larmöverföring</h2>
                     <div>
-                        <label>Larmsändare typ:</label>
+                        <label>5.1 - Larmsändare typ:</label>
                         <p data-key="send-type"></p>
                     </div>
                     <div>
-                        <label>Prov karaktär:</label>
+                        <label>5.2 - Prov karaktär:</label>
                         <p data-key="send-signals" class="array-display"></p>
                     </div>
                     <div>
-                        <label>Status:</label>
+                        <label>5.3 - Status:</label>
                         <p data-key="send-ok"></p>
                     </div>
                     <div class="add-margin">
-                        <label>Notering:</label>
+                        <label>5.4 - Notering:</label>
                         <p id="send-comment"></p>
                     </div>
                 </section>
                 <section class="sub-category">
-                    <h2>Ackumulatorer</h2>
+                    <h2>6. Ackumulatorer</h2>
                     <div>
-                        <label>Kontroll batterier:</label>
+                        <label>6.1 - Kontroll batterier:</label>
                         <p data-key="batteries"></p>
                     </div>
                     <div>
-                        <label>Antal och typ:</label>
+                        <label>6.2 - Antal och typ:</label>
                         <p data-key="battery-number"></p>
                         <p>x</p>
                         <p data-key="battery-type"></p>
                     </div>
                     <div>
-                        <label>Nästa batteribyte:</label>
+                        <label>6.3 - Nästa batteribyte:</label>
                         <p data-key="battery-change"></p>
                     </div>
                 </section>
                 <section class="sub-category">
-                     <h2>Förbättringsförslag/Övrigt</h2>
+                    <h2>7. Dokumentation</h2>
+                    <div>
+                        <label>7.1 - OR/SR ritningar:</label>
+                        <p data-key="schematic"></p>
+                    </div>
+                    <div>
+                        <label>7.2 - Anläggarintyg:</label>
+                        <p data-key="certificate"></p>
+                    </div>
+                    <div>
+                        <label>7.3 - Datum anläggarintyg:</label>
+                        <p data-key="certificate-date"></p>
+                    </div>
+                    <div>
+                        <label>7.4 - Anläggningsskötarskylt:</label>
+                        <p data-key="service-sign"></p>
+                    </div>
+                    <div class="add-margin">
+                        <label>7.5 - Notering:</label>
+                        <p id="document-comment"></p>
+                    </div>
+                </section>
+                <section class="sub-category">
+                     <h2>8. Förbättringsförslag/Övrigt</h2>
                     <div class="add-margin">
                         <p id="improvements"></p>
                     </div>

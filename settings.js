@@ -14,6 +14,7 @@ async function SaveToLocal() {
     localStorage.setItem("company-post", document.querySelector("#company-post").value);
     localStorage.setItem("company-location", document.querySelector("#company-location").value);
     localStorage.setItem("company-email", document.querySelector("#company-email").value);
+    localStorage.setItem("company-tel", document.querySelector("#company-tel").value);
 
     Notify();
 }
@@ -38,13 +39,17 @@ function LoadSettings(){
     const name = document.querySelector("#username");
     name.value = currentUserName;
     const mode = document.querySelector("#preferred-mode");
-    mode.value = modeSelect;
+    if (localStorage.getItem("mode") !== null){
+        mode.value = modeSelect;
+    }
+  
 
     document.querySelector("#company-name").value = localStorage.getItem("company-name");
     document.querySelector("#company-address").value = localStorage.getItem("company-address");
     document.querySelector("#company-post").value = localStorage.getItem("company-post");
     document.querySelector("#company-location").value = localStorage.getItem("company-location");
     document.querySelector("#company-email").value = localStorage.getItem("company-email");
+    document.querySelector("#company-tel").value = localStorage.getItem("company-tel");
 
 }
 

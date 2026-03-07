@@ -24,6 +24,9 @@ main {
     display: grid;
     grid-template-rows: 65px 110px 1fr 50px;
 }
+.main-content {
+    margin-top: 1rem;
+}
 label {
     font-weight: 700;
 }
@@ -48,6 +51,9 @@ h2 {
     margin-top: 0.4rem;
     padding-top: 0.2rem;
     border-top: 1px solid rgba(128, 128, 128, 0.459);
+}
+.margin {
+    margin-top: 0.2rem;
 }
 
 section div label {
@@ -104,7 +110,7 @@ button {
     margin-left: 1.5rem;
 }
 .contact-company > p, .contact-company > div {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 .contact-company div {
     display: flex;

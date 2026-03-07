@@ -8,29 +8,35 @@
     <link rel="stylesheet" href="./style.css" media="all">
     <script src="./scripts.js" defer></script>
 </head>
-<body>
+<body id="set-theme" onload="LoadTheme(), setTheme(modeSelect)">
     <div class="content">
         <div class="header">
-            
+            <a id="back" href="index.html"></a>
             <h1>CTRL+Print</h1>
         </div>
         <div>
-                <img src="resources/menu-alt-2-svgrepo-com.svg" id="menu-button" onclick="ToggleSidenav()">
-                <aside class="sidenav" id="sidenav">
-                <a href="index.html" id="home">Start</a>
-                <p id="create-2" onclick="ToggleLinks(), ToggleSidenav()">Skapa Nytt</p>
-                <a href="" id="load-2">Ladda</a>
-                <a href="" id="settings">Inställningar</a>
-                <a href="" id="dark-mode">Mörkt Läge</a>
-                <p id="coming-soon"><em>(Kommer snart)</em></p>
-                </aside>
+               
         </div>
-        <div class="page-content">
-            <p>Ce Märkning</p>
+        <div class="fire-page-content">
+            <div>
+                <!-- <div class="nav-section">
+                    <p onclick="ToggleInputGroup(0)">Revisionsprotokoll Brandlarm</p>
+                    <p onclick="ToggleInputGroup(1)">Kunduppgifter</p>
+                    <p onclick="ToggleInputGroup(2)">Centralapparat</p>
+                    <p onclick="ToggleInputGroup(3)">Ackumulatorer</p>
+                    <p onclick="ToggleInputGroup(4)">Prov sektion</p>
+                    <p onclick="ToggleInputGroup(5)">Prov larmdon och indikering</p>
+                    <p onclick="ToggleInputGroup(6)">Prov utgångar och styrningar</p>
+                    <p onclick="ToggleInputGroup(7)">Prov larmöverföring</p>
+                    <p onclick="ToggleInputGroup(8)">Dokumentation</p>
+                </div> -->
+            </div>
+            <div>
+                <h3 class="about-text">Kommer Snart</h3>
+            </div>
         </div>
         <div class="footer">
-            <a href="about.html">About</a>
-            <p>v.0.1</p>
+            <p>v.0.4</p>
         </div>
     </div>
 </body>

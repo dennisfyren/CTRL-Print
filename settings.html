@@ -12,7 +12,7 @@
 <body id="set-theme" onload="LoadSettings(), setTheme(modeSelect)">
     <div class="content">
         <div class="header">
-            <a href="index.html">Tillbaka</a>
+            <a id="back" href="index.html"></a>
             <h1>CTRL+Print</h1>
         </div>
         <div>
@@ -32,11 +32,11 @@
                     </div>
                     <div class="flex-col">
                         <label for="company-address">Adress:</label>
-                        <input type="text" id="company-address" value="">
+                        <input type="text" id="company-address" value="" autocomplete="street-address">
                     </div>
                     <div class="flex-col">
                         <label for="company-post">Postnummer:</label>
-                        <input type="text" id="company-post" value="">
+                        <input type="number" id="company-post" value="" autocomplete="postal-code">
                     </div>
                     <div class="flex-col">
                         <label for="company-location">Ort:</label>
@@ -44,7 +44,11 @@
                     </div>
                     <div class="flex-col">
                         <label for="company-email">E-post:</label>
-                        <input type="text" id="company-email" value="">
+                        <input type="email" id="company-email" value="" autocomplete="email">
+                    </div>
+                    <div class="flex-col">
+                        <label for="company-tel">Telefon:</label>
+                        <input type="tel" id="company-tel" value="" autocomplete="tel">
                     </div>
                 </div>
                 <div class="flex-col">
@@ -56,13 +60,15 @@
                 
                     
                 </div>
-                <button onclick="SaveToLocal()">Save</button>
-                <button class="erase" onclick="ClearLocal()">Rensa Data</button>
                 <div id="confirm"></div>
+                <button onclick="SaveToLocal()">Save</button>
+                <button class="erase" onclick="ClearLocal()" style="color: white">Rensa Data</button>
+          
            </div>
         </div>
         <div class="footer">
-            <p>v.0.2</p>
+            <p id="copy">©dennisfyren, 2026</p>
+            <p>v.0.4</p>
         </div>
     </div>
 </body>

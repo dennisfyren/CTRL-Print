@@ -45,6 +45,7 @@ document.querySelector("#company-address").textContent = localStorage.getItem("c
 document.querySelector("#company-post").textContent = localStorage.getItem("company-post");
 document.querySelector("#company-location").textContent = localStorage.getItem("company-location");
 document.querySelector("#company-email").textContent = localStorage.getItem("company-email");
+document.querySelector("#company-tel").textContent = localStorage.getItem("company-tel");
 
 Print();
 

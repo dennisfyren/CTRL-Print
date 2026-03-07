@@ -8,276 +8,35 @@
     <link rel="stylesheet" href="./style.css" media="all">
     <script src="./scripts.js" defer></script>
 </head>
-<body id="set-theme" onload="ToggleInputGroup(0), LoadSettings(), setTheme(modeSelect)">
+<body id="set-theme" onload="LoadTheme(), setTheme(modeSelect)">
     <div class="content">
         <div class="header">
             <a href="index.html">Tillbaka</a>
             <h1>CTRL+Print</h1>
         </div>
         <div>
-                <img src="resources/menu-alt-2-svgrepo-com.svg" id="menu-button" onclick="ToggleSidenav()">
-            <aside class="sidenav" id="sidenav">
-                <a href="index.html" id="home">Start</a>
-            </aside>
+               <p id="installer-name"></p>
         </div>
-        <div class="page-content">
-            <form action="summary-brandlarm.html" id="main-form">
-                <h3 onclick="ToggleInputGroup(0)" id="doc-type">Revisionsprotokoll Inbrottslarm</h3>
-                    <div class="input-group" id="test-1">
-                        <div>
-                            <div>
-                                <label for="installer">Utförare</label>
-                                <input type="text" id="installer" name="installer">
-                            </div>
-                            <div>
-                                <label for="installer">Datum</label>
-                                <input type="date" id="date" name="date">
-                            </div>
-                            <div>
-                                <label for="location">Ort</label>
-                                <input type="text" id="location" name="location">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="controltype" id="control-type">Typ av kontroll</label>
-                            <div class="radio-collection">
-                                <label for="year-control"><input type="radio" id="year-control" name="controltype" value="Årskontroll">Årskontroll</label>
-                                <label for="6-month-control"><input type="radio" id="6-month-control" name="controltype" value="Halvårskontroll">6 Månader</label>
-                                <label for="3-month-control"><input type="radio" id="3-month-control" name="controltype" value="Kvartalskontroll">Kvartalsprov</label>
-                                <label for="month-control"><input type="radio" id="month-control" name="controltype" value="Månadsprov">Månadsprov</label>
-                                <label for="extra-test"><input type="radio" id="extra-test" name="controltype" value="Extra test">Extra Test</label>
-                            </div>
-                        </div>
-                    </div>
-                <h4 onclick="ToggleInputGroup(1)">Kunduppgifter</h4>
-                <div class="input-group" id="test-2">
-                    <div>
-                        <label for="customer">Kund</label>
-                        <input type="text" id="customer" name="customer">
-                    </div>
-                    <div>
-                        <label for="facility">Anläggning</label>
-                        <input type="text" id="facility" name="facility">
-                    </div>
-                    <div>
-                        <label for="contact">Kontaktperson</label>
-                        <input type="text" id="contact" name="contact">
-                    </div>
-                </div>
-                <h4 onclick="ToggleInputGroup(2)">Centralapparat</h4>
-                <div class="input-group" id="test-3">
-                    <div>
-                        <label for="type">Typ</label>
-                        <input type="text" id="type" name="type">
-                    </div>
-                    <div>
-                        <label for="alarmpoints">Antal sektioner</label>
-                        <input type="number" id="alarmpoints" name="alarmpoints">
-                    </div>
-                    <div>
-                        <label for="charge">Laddspänning</label>
-                        <input type="number" id="charge" name="charge" step="0.01">
-                    </div>
-                    <div>
-                        <label for="current">Strömförbrukning <em>mA</em></label>
-                        <input type="number" id="current" name="current" step="0.01">
-                    </div>
-                    <div>
-                        <label for="version">Version</label>
-                        <input type="number" id="version" name="version" step="0.01">
-                    </div>
-                    <div>
-                        <label for="display">Display/Summer</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="display-ok" name="display" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="display-service" name="display" value="Åtgärd behövs">Åtgärd behövs</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="display">Tid och Datum</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="time-date-ok" name="time-date" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="time-date-adjust" name="time-date" value="Justerat Tid">Justerat tid</label>
-                            <label><input type="radio" id="time-date-service" name="time-date" value="Åtgärd behövs">Åtgärd behövs</label>
-                            <label><input type="radio" id="time-date-missing" name="time-date" value="Funktion Saknas">Funktion Saknas</label>
-                        </div>
-                        <div>
-                        <p>Notering</p>
-                        <textarea id="central-comment" class="comment-field"></textarea>
-                    </div>
-                    </div>
-                </div>
-                <h4 onclick="ToggleInputGroup(3)">Ackumulatorer</h4>
-                <div class="input-group" id="test-4">
-                    <div>
-                        <label for="batteries">Kontroll av batterier</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="batteries" name="batteries" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="batteries" name="batteries" value="Byte utfört">Byte utfört</label>
-                            <label><input type="radio" id="batteries" name="batteries" value="Åtgärd behövs">Åtgärd behövs</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="battery-type">Antal <em>x</em></label>
-                        <input type="number" id="battery-number" name="battery-number">
-                    </div>
-                    <div>
-                        <label for="battery-type">Typ <em>Ah</em></label>
-                        <input type="text" id="battery-type" name="battery-type">
-                        
-                    </div>
-                    <div>
-                        <label for="battery-change">Nästa batteribyte</label>
-                        <input type="date" id="battery-change" name="battery-change">
-                    </div>
-                </div>
-                <h4 onclick="ToggleInputGroup(4)">Prov sektion</h4>
-                <div class="input-group" id="test-5">
-                    <div>
-                        <label for="test-alarm">Stickprov sektion</label>
-                        <input type="text" id="test-alarm" name="test-alarm">
-                    </div>
-                    <div>
-                        <label for="test-alarm-status">Status</label>
-                        <div>
-                            <label><input type="radio" id="test-alarm-status-ok" name="test-alarm-status" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="test-alarm-status-service" name="test-alarm-status" value="Åtgärd behövs">Åtgärd behövs</label>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Notering</p>
-                        <textarea id="test-comment" class="comment-field"></textarea>
-                    </div>
-                </div>
-                <h4 onclick="ToggleInputGroup(5)">Prov larmdon och indikering</h4>
-                <div class="input-group" id="test-6">
-                    <div>
-                        <label for="siren">Larmdon</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="siren-ok" name="siren" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="siren-service" name="siren" value="Åtgärd behövs">Åtgärd behövs</label>
-                            <label><input type="radio" id="siren-no" name="siren" value="Ej aktuellt">Ej aktuellt</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="out-siren">Yttre larmdon</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="out-siren-ok" name="out-siren" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="out-siren-service" name="out-siren" value="Åtgärd behövs">Åtgärd behövs</label>
-                            <label><input type="radio" id="out-siren-missing" name="out-siren" value="Saknas">Saknas</label>
-                            <label><input type="radio" id="out-siren-no" name="out-siren" value="Ej aktuellt">Ej aktuellt</label>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Notering</p>
-                        <textarea id="facility-comment" class="comment-field"></textarea>
-                    </div>
-                </div>
-                <h4 onclick="ToggleInputGroup(6)">Prov utgångar och styrningar</h4>
-                <div class="input-group" id="test-7">
-                    <div>
-                        <label for="magnets">Dörrhållarmagneter</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="magnets-ok" name="magnets" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="magnets-service" name="magnets" value="Åtgärd behövs">Åtgärd behövs</label>
-                            <label><input type="radio" id="magnets-missing" name="magnets" value="Saknas">Saknas</label>
-                            <label><input type="radio" id="magnets-no" name="magnets" value="Ej aktuellt">Ej aktuellt</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="ventilation">Ventilationsstyrning<em> Endast utgång</em></label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="ventilation-ok" name="ventilation" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="ventilation-service" name="ventilation" value="Åtgärd behövs">Åtgärd behövs</label>
-                            <label><input type="radio" id="ventilation-missing" name="ventilation" value="Saknas">Saknas</label>
-                            <label><input type="radio" id="ventilation-no" name="ventilation" value="Ej aktuellt">Ej aktuellt</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="out-other">Övriga styrningar</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="out-other-ok" name="out-other" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="out-other-service" name="out-other" value="Åtgärd behövs">Åtgärd behövs</label>
-                            <label><input type="radio" id="out-other-missing" name="out-other" value="Saknas">Saknas</label>
-                            <label><input type="radio" id="out-other-no" name="out-other" value="Ej aktuellt">Ej aktuellt</label>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Notering</p>
-                        <textarea id="out-comment" class="comment-field"></textarea>
-                    </div>
-                </div>
-                <h4 onclick="ToggleInputGroup(7)">Prov larmöverföring</h4>
-                <div class="input-group" id="test-8">
-                    <div>
-                        <label for="send-type">Larmsändare typ</label>
-                        <input type="text" id="send-type" name="send-type">
-                    </div>
-                    <div>
-                        <label for="send-signals">Prov käraktär</label>
-                        <div class="checkbox-collection">
-                            <label><input type="checkbox" id="send-signals-alarm" name="send-signals" value=" Brandlarm">Brandlarm</label>
-                            <label><input type="checkbox" id="send-signals-fault" name="send-signals" value=" Fellarm">Fellarm</label>
-                            <label><input type="checkbox" id="send-signals-other" name="send-signals" value="&nbsp;">Annan, ange nedan</label>
-                            <textarea id="send-signals-comment" class="comment-field"></textarea>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="send-ok">Status</label>
-                        <div class="radio-collection">
-                            <label><input type="radio" id="send-status-ok" name="send-ok" value="Kontrollerad OK">Kontrollerad OK</label>
-                            <label><input type="radio" id="send-status-service" name="send-ok" value="Åtgärd behövs">Åtgärd behövs</label>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Notering</p>
-                        <textarea id="send-comment" class="comment-field"></textarea>
-                    </div>
-                </div>
-                <h4 onclick="ToggleInputGroup(8)">Dokumentation</h4>
-                    <div class="input-group" id="test-9">
-                        <div>
-                            <label for="or-sr">OR/SR-ritningar</label>
-                            <div class="radio-collection">
-                                <label><input type="radio" id="schematic-ok" name="schematic" value="Kontrollerad OK">Kontrollerad OK</label>
-                                <label><input type="radio" id="schematic-service" name="schematic" value="Åtgärd behövs">Åtgärd behövs</label>
-                                <label><input type="radio" id="schematic-no" name="schematic" value="Ej aktuellt">Ej aktuellt</label>
-                            </div>
-                        </div>
-                        <div>
-                        <label for="certificate">Anläggarintyg</label>
-                            <div class="radio-collection">
-                                <label><input type="radio" id="certificate-ok" name="certificate" value="Kontrollerad OK">Kontrollerad OK</label>
-                                <label><input type="radio" id="certificate-service" name="certificate" value="Åtgärd behövs">Åtgärd behövs</label>
-                                <label><input type="radio" id="certificate-missing" name="certificate" value="Saknas">Saknas</label>
-                                <label><input type="radio" id="certificate-no" name="certificate" value="Ej aktuellt">Ej aktuellt</label>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="certificate-date">Datum anläggarintyg</label>
-                            <input type="date" id="certificate-date" name="certificate-date">
-                        </div>
-                        <div>
-                        <label for="service-sign">Anläggningsskötarskylt</label>
-                            <div class="radio-collection">
-                                <label><input type="radio" id="service-sign-ok" name="service-sign" value="Kontrollerad OK">Kontrollerad OK</label>
-                                <label><input type="radio" id="service-sign-service" name="service-sign" value="Åtgärd behövs">Åtgärd behövs</label>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Notering</p>
-                            <textarea id="document-comment" class="comment-field"></textarea>
-                        </div>
-                    </div>
-                    <div id="improvements-div">
-                        <p>Förbättringsförslag/Övrigt</p>
-                        <textarea id="improvements" class="comment-field"></textarea>
-                    </div>
-                    <input type="submit" id="submit" value="Förhandsgranska och Skriv ut" onclick="StoreData()">
-            </form>
+        <div class="fire-page-content">
+            <div>
+                <!-- <div class="nav-section">
+                    <p onclick="ToggleInputGroup(0)">Revisionsprotokoll Brandlarm</p>
+                    <p onclick="ToggleInputGroup(1)">Kunduppgifter</p>
+                    <p onclick="ToggleInputGroup(2)">Centralapparat</p>
+                    <p onclick="ToggleInputGroup(3)">Ackumulatorer</p>
+                    <p onclick="ToggleInputGroup(4)">Prov sektion</p>
+                    <p onclick="ToggleInputGroup(5)">Prov larmdon och indikering</p>
+                    <p onclick="ToggleInputGroup(6)">Prov utgångar och styrningar</p>
+                    <p onclick="ToggleInputGroup(7)">Prov larmöverföring</p>
+                    <p onclick="ToggleInputGroup(8)">Dokumentation</p>
+                </div> -->
+            </div>
+            <div>
+                <h3 class="about-text">Kommer Snart</h3>
+            </div>
         </div>
         <div class="footer">
-            <p>v.0.2</p>
+            <p>v.0.3</p>
         </div>
     </div>
 </body>

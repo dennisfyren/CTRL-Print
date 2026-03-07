@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css" media="all">
     <script src="./scripts.js" defer></script>
 </head>
-<body id="set-theme" onload="setTheme(modeSelect)">
+<body id="set-theme" onload="LoadTheme(),setTheme(modeSelect)">
     <div class="content">
         <div class="header-index">
             
@@ -41,9 +41,14 @@
                 <!-- <li id="load"><a href="">Ladda</a></li> -->
             </ul>
         </div>
+        <div id="notify-settings" class="notify-settings">
+            <p>Gå in i inställningar och ställ in uppgifter för protokoll.</p>
+            <a href="settings.html">Inställningar</a>
+        </div>
         <div class="footer">
             <a href="about.html">About</a>
-            <p>v.0.2</p>
+            <p id="copy">©dennisfyren, 2026</p>
+            <p>v.0.4</p>
         </div>
     </div>
 </body>

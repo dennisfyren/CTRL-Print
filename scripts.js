@@ -59,8 +59,17 @@ function StoreData(){
     ]
     sessionStorage.setItem("comments", JSON.stringify(comments));
 }
+function Move(){
+    window.location="summary-brandlarm.html";
+}
 
+if ((localStorage.getItem("company-tel") === null) || (localStorage.getItem("company-tel") === "")) {
+    const notify = document.querySelector("#notify-settings");
+    notify.classList.add("notify-settings-show");
+}
 hiddenLinks.classList.add("show-links");
+
+
 function pause (milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
@@ -93,7 +102,7 @@ async function ToggleInputGroup(categoryNumber) {
         element.classList.remove("show-input-group");
     });
     categories[categoryNumber].classList.add("show-input-group");
-    await pause(350);
+    await pause(400);
     categories[categoryNumber].scrollIntoView();
 }
 function ToggleLinks() {
@@ -109,12 +118,13 @@ window.addEventListener("load", (LoadSettings()));
 
 
 function LoadSettings(){
-    modeSelect = localStorage.getItem("mode");
     currentUserName = localStorage.getItem("name");
-    currentLogoPath = localStorage.getItem("logo");
 
     const name = document.querySelector("#installer");
     name.value = currentUserName;
+}
+function LoadTheme(){
+    modeSelect = localStorage.getItem("mode");
 }
 
 function setTheme(mode) {
@@ -135,6 +145,8 @@ function setTheme(mode) {
     }
 
 }
+function OpenNext(){
 
+}
 
 

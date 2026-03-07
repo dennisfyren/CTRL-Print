@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="./style.css" media="all">
     <script src="./scripts.js" defer></script>
 </head>
-<body id="set-theme" onload="ToggleInputGroup(0), LoadSettings(), setTheme(modeSelect)">
+<body id="set-theme" onload="ToggleInputGroup(0), LoadSettings(), LoadTheme(), setTheme(modeSelect)">
     <div class="content">
         <div class="header">
-            <a href="index.html">Tillbaka</a>
+            <a id="back" href="index.html"></a>
             <h1>CTRL+Print</h1>
         </div>
         <div>
                
         </div>
-        <div class="page-content">
+        <div class="fire-page-content">
+            <div>
+                <div class="nav-section">
+                    <p onclick="ToggleInputGroup(0)">Revisionsprotokoll Brandlarm</p>
+                    <p onclick="ToggleInputGroup(1)">Kunduppgifter</p>
+                    <p onclick="ToggleInputGroup(2)">Centralapparat</p>
+                    <p onclick="ToggleInputGroup(3)">Ackumulatorer</p>
+                    <p onclick="ToggleInputGroup(4)">Prov sektion</p>
+                    <p onclick="ToggleInputGroup(5)">Prov larmdon och indikering</p>
+                    <p onclick="ToggleInputGroup(6)">Prov utgångar och styrningar</p>
+                    <p onclick="ToggleInputGroup(7)">Prov larmöverföring</p>
+                    <p onclick="ToggleInputGroup(8)">Dokumentation</p>
+                    <p onclick="document.querySelector('#improvements').scrollIntoView(), ToggleInputGroup(9), document.querySelector('#improvements').focus()">Förbättringsförslag</p>
+                    <button onclick="StoreData(), Move()">Skriv ut</button>
+                </div>
+                
+            </div>
             <form action="summary-brandlarm.html" id="main-form">
                 <h3 onclick="ToggleInputGroup(0)" id="doc-type">Revisionsprotokoll Brandlarm</h3>
                     <div class="input-group" id="test-1">
@@ -30,10 +46,10 @@
                                 <label for="installer">Datum</label>
                                 <input type="date" id="date" name="date">
                             </div>
-                            <div>
+                            <!-- <div>
                                 <label for="location">Ort</label>
                                 <input type="text" id="location" name="location">
-                            </div>
+                            </div> -->
                         </div>
                         <div>
                             <label for="controltype" id="control-type">Typ av kontroll</label>
@@ -45,7 +61,9 @@
                                 <label for="extra-test"><input type="radio" id="extra-test" name="controltype" value="Extra test">Extra Test</label>
                             </div>
                         </div>
+                        <button onclick="ToggleInputGroup(1)" type="button" class="next-button">Next</button>
                     </div>
+                    
                 <h4 onclick="ToggleInputGroup(1)">Kunduppgifter</h4>
                 <div class="input-group" id="test-2">
                     <div>
@@ -60,6 +78,7 @@
                         <label for="contact">Kontaktperson</label>
                         <input type="text" id="contact" name="contact">
                     </div>
+                    <button onclick="ToggleInputGroup(2)" type="button" class="next-button">Next</button>
                 </div>
                 <h4 onclick="ToggleInputGroup(2)">Centralapparat</h4>
                 <div class="input-group" id="test-3">
@@ -101,7 +120,8 @@
                         <div>
                         <p>Notering</p>
                         <textarea id="central-comment" class="comment-field"></textarea>
-                    </div>
+                        </div>
+                        <button onclick="ToggleInputGroup(3)" type="button" class="next-button">Next</button>
                     </div>
                 </div>
                 <h4 onclick="ToggleInputGroup(3)">Ackumulatorer</h4>
@@ -127,6 +147,7 @@
                         <label for="battery-change">Nästa batteribyte</label>
                         <input type="date" id="battery-change" name="battery-change">
                     </div>
+                    <button onclick="ToggleInputGroup(4)" type="button" class="next-button">Next</button>
                 </div>
                 <h4 onclick="ToggleInputGroup(4)">Prov sektion</h4>
                 <div class="input-group" id="test-5">
@@ -145,6 +166,7 @@
                         <p>Notering</p>
                         <textarea id="test-comment" class="comment-field"></textarea>
                     </div>
+                    <button onclick="ToggleInputGroup(5)" type="button" class="next-button">Next</button>
                 </div>
                 <h4 onclick="ToggleInputGroup(5)">Prov larmdon och indikering</h4>
                 <div class="input-group" id="test-6">
@@ -169,6 +191,7 @@
                         <p>Notering</p>
                         <textarea id="facility-comment" class="comment-field"></textarea>
                     </div>
+                    <button onclick="ToggleInputGroup(6)" type="button" class="next-button">Next</button>
                 </div>
                 <h4 onclick="ToggleInputGroup(6)">Prov utgångar och styrningar</h4>
                 <div class="input-group" id="test-7">
@@ -203,6 +226,7 @@
                         <p>Notering</p>
                         <textarea id="out-comment" class="comment-field"></textarea>
                     </div>
+                    <button onclick="ToggleInputGroup(7)" type="button" class="next-button">Next</button>
                 </div>
                 <h4 onclick="ToggleInputGroup(7)">Prov larmöverföring</h4>
                 <div class="input-group" id="test-8">
@@ -216,8 +240,8 @@
                             <label><input type="checkbox" id="send-signals-alarm" name="send-signals" value=" Brandlarm">Brandlarm</label>
                             <label><input type="checkbox" id="send-signals-fault" name="send-signals" value=" Fellarm">Fellarm</label>
                             <label><input type="checkbox" id="send-signals-other" name="send-signals" value="&nbsp;">Annan <em>Ange nedan</em></label>
-                            <textarea id="send-signals-comment" class="comment-field"></textarea>
                         </div>
+                        <textarea id="send-signals-comment" class="comment-field"></textarea>
                     </div>
                     <div>
                         <label for="send-ok">Status</label>
@@ -230,6 +254,7 @@
                         <p>Notering</p>
                         <textarea id="send-comment" class="comment-field"></textarea>
                     </div>
+                    <button onclick="ToggleInputGroup(8)" type="button" class="next-button">Next</button>
                 </div>
                 <h4 onclick="ToggleInputGroup(8)">Dokumentation</h4>
                     <div class="input-group" id="test-9">
@@ -270,11 +295,15 @@
                         <p>Förbättringsförslag/Övrigt</p>
                         <textarea id="improvements" class="comment-field"></textarea>
                     </div>
-                    <input type="submit" id="submit" value="Förhandsgranska och Skriv ut" onclick="StoreData()">
+                    <div id="controls">
+                        <input type="submit" id="submit" value="Förhandsgranska och Skriv ut" onclick="StoreData()">
+                        <!-- <input class="erase" onclick="ToggleInputGroup(0)" type="reset" id="" value="Rensa data"> -->
+                    </div>
             </form>
         </div>
         <div class="footer">
-            <p>v.0.2</p>
+            <p id="copy">©dennisfyren, 2026</p>
+            <p>v.0.4</p>
         </div>
     </div>
 </body>

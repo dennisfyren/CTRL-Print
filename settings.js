@@ -5,15 +5,24 @@ function pause (milliseconds) {
 async function SaveToLocal() {
     const userName = document.querySelector("#username").value;
     const preferredMode = document.querySelector("#preferred-mode").value;
-    const confirm = document.querySelector("#confirm");
-    const p = document.createElement("p");
 
     localStorage.setItem("name", userName);
     localStorage.setItem("mode", preferredMode);
-    
+
+    localStorage.setItem("company-name", document.querySelector("#company-name").value);
+    localStorage.setItem("company-address", document.querySelector("#company-address").value);
+    localStorage.setItem("company-post", document.querySelector("#company-post").value);
+    localStorage.setItem("company-location", document.querySelector("#company-location").value);
+    localStorage.setItem("company-email", document.querySelector("#company-email").value);
+
+    Notify();
+}
+async function Notify(){
+    const confirm = document.querySelector("#confirm");
+    const p = document.createElement("p");
 
     confirm.appendChild(p);
-    p.textContent = "Sparat!"
+    p.textContent = "Ändringar sparade!"
     await pause(500);
     location.reload();
 }
@@ -22,8 +31,25 @@ function LoadSettings(){
     modeSelect = localStorage.getItem("mode");
     currentUserName = localStorage.getItem("name");
 
+    const companyAddress = localStorage.getItem("company-address");
+    const companyPost = localStorage.getItem("company-post");
+    const companyLocation = localStorage.getItem("company-location");
+
     const name = document.querySelector("#username");
     name.value = currentUserName;
     const mode = document.querySelector("#preferred-mode");
     mode.value = modeSelect;
+
+    document.querySelector("#company-name").value = localStorage.getItem("company-name");
+    document.querySelector("#company-address").value = localStorage.getItem("company-address");
+    document.querySelector("#company-post").value = localStorage.getItem("company-post");
+    document.querySelector("#company-location").value = localStorage.getItem("company-location");
+    document.querySelector("#company-email").value = localStorage.getItem("company-email");
+
+}
+
+async function ClearLocal() {
+    localStorage.clear();
+    Notify();
+    location.reload();
 }

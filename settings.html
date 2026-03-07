@@ -21,17 +21,43 @@
         <div class="page-content">
            <div class="settings-main">
                 <div>
-                    <p>Namn:</p>
-                    <input id="username" type="text" value="">
+                    <h3>Kontaktuppgifter</h3>
+                    <div class="flex-col">
+                        <label for="username">Namn:</label>
+                        <input type="text" id="username" value="">
+                    </div>
+                    <div class="flex-col">
+                        <label for="company-name">Företagsnamn:</label>
+                        <input type="text" id="company-name" value="">
+                    </div>
+                    <div class="flex-col">
+                        <label for="company-address">Adress:</label>
+                        <input type="text" id="company-address" value="">
+                    </div>
+                    <div class="flex-col">
+                        <label for="company-post">Postnummer:</label>
+                        <input type="text" id="company-post" value="">
+                    </div>
+                    <div class="flex-col">
+                        <label for="company-location">Ort:</label>
+                        <input type="text" id="company-location" value="">
+                    </div>
+                    <div class="flex-col">
+                        <label for="company-email">E-post:</label>
+                        <input type="text" id="company-email" value="">
+                    </div>
                 </div>
-                <div>
+                <div class="flex-col">
                     <select id="preferred-mode">
-                        <option value="">Välj tema</option>
+                        <option selected disabled hidden value="">Välj tema</option>
                         <option value="light">Ljust</option>
                         <option value="dark">Mörkt</option>
                     </select>
+                
+                    
                 </div>
                 <button onclick="SaveToLocal()">Save</button>
+                <button class="erase" onclick="ClearLocal()">Rensa Data</button>
                 <div id="confirm"></div>
            </div>
         </div>

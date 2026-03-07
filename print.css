@@ -103,6 +103,13 @@ button {
     height: 3.2rem;
     margin-left: 1.5rem;
 }
+.contact-company > p, .contact-company > div {
+    font-size: 0.8rem;
+}
+.contact-company div {
+    display: flex;
+    gap: 0.2rem
+}
 @media print {
     button {
         display: none;

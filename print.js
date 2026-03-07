@@ -40,6 +40,12 @@ document.querySelector("#send-comment").textContent = sortedComments[4];
 document.querySelector("#improvements").textContent = sortedComments[6];
 document.querySelector("#send-signals-comment").textContent = sortedComments [7];
 
+document.querySelector("#company-name").textContent = localStorage.getItem("company-name");
+document.querySelector("#company-address").textContent = localStorage.getItem("company-address");
+document.querySelector("#company-post").textContent = localStorage.getItem("company-post");
+document.querySelector("#company-location").textContent = localStorage.getItem("company-location");
+document.querySelector("#company-email").textContent = localStorage.getItem("company-email");
+
 Print();
 
 

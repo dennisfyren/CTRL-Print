@@ -108,6 +108,15 @@ a:link, a:visited, a {
 }
 body {
     height: 100vh;
+    --main-color-1: #FFFFFF;
+    --main-color-2: #0066CC;
+    --main-color-3: #E8F0FA;
+    --main-color-4: #1A1A1A;
+    --main-color-5: #606060;
+    --main-color-6: #FFFFFF;
+    --main-color-7: #0066CC;
+    --main-color-8: #0066CC;
+    --svg-hue-1: brightness(0) saturate(100%) invert(25%) sepia(90%) saturate(1500%) hue-rotate(210deg) brightness(95%) contrast(110%);
 }
 li {
     color: var(--main-color-4);
@@ -326,4 +335,12 @@ li {
     color: green;
     font-size: 1.3rem;
     font-weight: 700;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.erase {
+    background-color: rgba(221, 3, 3, 0.863);
+    border: 1px solid red;
 }

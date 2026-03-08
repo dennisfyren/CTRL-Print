@@ -1,12 +1,43 @@
-const json = sessionStorage.getItem("data");
+// Old code is saved and commented for testing. 
+
+// const json = sessionStorage.getItem("data");
 const recieveDocType = sessionStorage.getItem("doctype");
-const fData = JSON.parse(json);
+// const fData = JSON.parse(json);
 const docType = document.querySelector("#doc-type");
 docType.textContent = recieveDocType;
 
 const jsonComments = sessionStorage.getItem("comments");
 const sortedComments = JSON.parse(jsonComments);
+const storedLogo = localStorage.getItem("customLogo");
 
+if (storedLogo) {
+    // Set it as the src of an img element
+    document.querySelector("#logo-display").src = storedLogo;
+}
+
+async function decryptData() {
+    const stored = JSON.parse(sessionStorage.getItem("data"));
+    if (!stored) return null;
+
+    // Import the key
+    const key = await crypto.subtle.importKey(
+        'jwk',
+        stored.key,
+        { name: 'AES-GCM', length: 256 },
+        true,
+        ['decrypt']
+    );
+
+    // Decrypt
+    const decrypted = await crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: new Uint8Array(stored.iv) },
+        key,
+        new Uint8Array(stored.encrypted)
+    );
+
+    // Parse back to object
+    return JSON.parse(new TextDecoder().decode(decrypted));
+}
 
 function Print(){
     window.print();
@@ -18,7 +49,7 @@ function GetElements(){
 }
 const elements = GetElements();
 
-function FillData(dataObject) {
+async function FillData(dataObject) {
     document.querySelectorAll('p[data-key]').forEach(element => {
         const key = element.getAttribute('data-key');
         if (key in dataObject) {
@@ -29,8 +60,11 @@ function FillData(dataObject) {
 function GoHome(){
     document.location.href="index.html";
 }
-
-FillData(fData);
+async function getData(){
+    const fData = await decryptData();
+    FillData(fData);
+}
+getData();
 document.querySelector("#central-comment").textContent = sortedComments[0];
 document.querySelector("#document-comment").textContent = sortedComments[5];
 document.querySelector("#test-comment").textContent = sortedComments[1];
@@ -48,6 +82,3 @@ document.querySelector("#company-email").textContent = localStorage.getItem("com
 document.querySelector("#company-tel").textContent = localStorage.getItem("company-tel");
 
 Print();
-
-
-

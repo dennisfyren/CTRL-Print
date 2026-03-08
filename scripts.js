@@ -20,7 +20,7 @@ const categories = [document.getElementById("test-1"),
 let menuOpen = 0;
 let linksOpen = 0;
 
-function StoreData(){
+async function StoreData(){
     const fData = new FormData(form);
     const docType = document.querySelector("#doc-type").textContent;
     
@@ -43,8 +43,30 @@ function StoreData(){
             delete fDataObj[item];
         }
     }
-    
-    sessionStorage.setItem("data", JSON.stringify(fDataObj));
+
+    // Encrypt the data
+    const dataString = JSON.stringify(fDataObj);
+    const key = await crypto.subtle.generateKey(
+        { name: 'AES-GCM', length: 256 },
+        true, // extractable
+        ['encrypt', 'decrypt']
+    );
+    const iv = crypto.getRandomValues(new Uint8Array(12)); // 96-bit IV for GCM
+    const encrypted = await crypto.subtle.encrypt(
+        { name: 'AES-GCM', iv: iv },
+        key,
+        new TextEncoder().encode(dataString)
+    );
+
+    // Store encrypted data, IV, and key (as JWK for easy import)
+    const encryptedData = {
+        encrypted: Array.from(new Uint8Array(encrypted)),
+        iv: Array.from(iv),
+        key: await crypto.subtle.exportKey('jwk', key)
+    };
+    sessionStorage.setItem("data", JSON.stringify(encryptedData));
+
+    // sessionStorage.setItem("data", JSON.stringify(fDataObj));
     sessionStorage.setItem("doctype", docType);
 
     const comments = [
@@ -145,8 +167,6 @@ function setTheme(mode) {
     }
 
 }
-function OpenNext(){
 
-}
 
 

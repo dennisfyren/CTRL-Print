@@ -58,3 +58,18 @@ async function ClearLocal() {
     Notify();
     location.reload();
 }
+
+let customLogoInput = document.querySelector("#company-logo");
+customLogoInput.addEventListener("change", handleLogoChange);
+function handleLogoChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const dataURL = e.target.result;
+            localStorage.setItem("customLogo", dataURL);
+            currentLogoPath = dataURL; // Optionally update the variable
+        };
+        reader.readAsDataURL(file);
+    }
+}

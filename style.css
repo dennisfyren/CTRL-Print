@@ -56,7 +56,7 @@ p {
 input:focus {
     outline: none;
 }
-input[type=text], input[type=date], input[type=number], textarea, input[type=email], input[type=tel] {
+input[type=text], input[type=date], input[type=number], textarea, input[type=email], input[type=tel], input[type=file]  {
     border: 1px solid var(--main-color-4);
     border-radius: 0.4rem;
     height: 2.5rem;
@@ -66,6 +66,9 @@ input[type=text], input[type=date], input[type=number], textarea, input[type=ema
     padding-left: 1rem;
     background-color: var(--main-color-6);
     color: var(--main-color-4);
+}
+input[type=file]{
+    align-content: center;
 }
 input[type=radio] {
     appearance: none;
@@ -81,7 +84,7 @@ input[type=radio] {
 input[type=radio]:checked {
     background-color: var(--main-color-4);
 }
-input[type=submit], button, select, input[type=reset] {
+input[type=submit], button, select, input[type=reset]{
     border: none;
     border-radius: 0.4rem;
     height: 2.8rem;

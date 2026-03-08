@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="32.502407mm"
-   height="11.046354mm"
-   viewBox="0 0 32.502407 11.046354"
+   width="70.224594mm"
+   height="31.053204mm"
+   viewBox="0 0 70.224594 31.053203"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@
   </defs>
   <g
      id="layer1"
-     transform="translate(-74.77832,-48.015904)">
+     transform="translate(-74.502514,-47.022176)">
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,40.390755,9.4601179)"
@@ -39,7 +39,17 @@
        style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold Italic';writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);fill:#ffffff;fill-opacity:1;stroke-width:1.00157;stroke-dasharray:none"><tspan
          x="126.96875"
          y="186.81641"
-         id="tspan2">CTRL</tspan></text>
+         id="tspan4">CTRL</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold Italic';writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+       x="110.19794"
+       y="77.113106"
+       id="text2"><tspan
+         id="tspan2"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="110.19794"
+         y="77.113106">Print</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;font-size:66.8303px;font-family:Calibri;-inkscape-font-specification:'Calibri Light Italic';writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1;stroke-width:0.348074"
@@ -51,5 +61,13 @@
          style="font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;font-size:66.8303px;font-family:Calibri;-inkscape-font-specification:'Calibri Light Italic';fill:#ffffff;fill-opacity:1;stroke-width:0.348074"
          x="93.962769"
          y="80.830284">+</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.280022;stroke-dasharray:none"
+       d="m 104.55546,66.584374 -30.052946,0.1865 28.114036,10.071092 z"
+       id="path12" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.280022;stroke-dasharray:none"
+       d="M 114.6738,58.483574 144.72711,58.596457 116.7148,48.245805 Z"
+       id="path12-1" />
   </g>
 </svg>

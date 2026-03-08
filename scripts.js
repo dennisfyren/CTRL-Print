@@ -36,38 +36,6 @@ async function StoreData(){
         }
         fDataObj[key].push(value);
     });
-    
-    //Filter data before sending to sessionStorage.
-    for(let item in fDataObj) {
-        if (fDataObj[item] === null || fDataObj[item] === undefined || fDataObj[item] === ""){
-            delete fDataObj[item];
-        }
-    }
-
-    // Encrypt the data
-    const dataString = JSON.stringify(fDataObj);
-    const key = await crypto.subtle.generateKey(
-        { name: 'AES-GCM', length: 256 },
-        true, // extractable
-        ['encrypt', 'decrypt']
-    );
-    const iv = crypto.getRandomValues(new Uint8Array(12)); // 96-bit IV for GCM
-    const encrypted = await crypto.subtle.encrypt(
-        { name: 'AES-GCM', iv: iv },
-        key,
-        new TextEncoder().encode(dataString)
-    );
-
-    // Store encrypted data, IV, and key (as JWK for easy import)
-    const encryptedData = {
-        encrypted: Array.from(new Uint8Array(encrypted)),
-        iv: Array.from(iv),
-        key: await crypto.subtle.exportKey('jwk', key)
-    };
-    sessionStorage.setItem("data", JSON.stringify(encryptedData));
-
-    // sessionStorage.setItem("data", JSON.stringify(fDataObj));
-    sessionStorage.setItem("doctype", docType);
 
     const comments = [
         document.querySelector("#central-comment").value,
@@ -79,7 +47,53 @@ async function StoreData(){
         document.querySelector("#improvements").value,
         document.querySelector("#send-signals-comment").value,
     ]
-    sessionStorage.setItem("comments", JSON.stringify(comments));
+    
+    //Filter data before sending to sessionStorage.
+    for(let item in fDataObj) {
+        if (fDataObj[item] === null || fDataObj[item] === undefined || fDataObj[item] === ""){
+            delete fDataObj[item];
+        }
+    }
+
+    // Encrypt the data
+    const dataString = JSON.stringify(fDataObj);
+    const dataString2 = JSON.stringify(comments);
+
+    const key = await crypto.subtle.generateKey(
+        { name: 'AES-GCM', length: 256 },
+        true, // extractable
+        ['encrypt', 'decrypt']
+    );
+    const iv = crypto.getRandomValues(new Uint8Array(12)); // 96-bit IV for GCM
+    const encrypted = await crypto.subtle.encrypt(
+        { name: 'AES-GCM', iv: iv },
+        key,
+        new TextEncoder().encode(dataString)
+    );
+    const encrypted2 = await crypto.subtle.encrypt(
+        { name: 'AES-GCM', iv: iv },
+        key,
+        new TextEncoder().encode(dataString2)
+    );
+
+    // Store encrypted data, IV, and key (as JWK for easy import)
+    const encryptedData = {
+        encrypted: Array.from(new Uint8Array(encrypted)),
+        iv: Array.from(iv),
+        key: await crypto.subtle.exportKey('jwk', key)
+    };
+    const encryptedData2 = {
+        encrypted: Array.from(new Uint8Array(encrypted2)),
+        iv: Array.from(iv),
+        key: await crypto.subtle.exportKey('jwk', key)
+    };
+    sessionStorage.setItem("data", JSON.stringify(encryptedData));
+    sessionStorage.setItem("comments", JSON.stringify(encryptedData2));
+
+    sessionStorage.setItem("doctype", docType);
+
+    // sessionStorage.setItem("data", JSON.stringify(fDataObj));
+    // sessionStorage.setItem("comments", JSON.stringify(comments));
 }
 function Move(){
     window.location="summary-brandlarm.html";

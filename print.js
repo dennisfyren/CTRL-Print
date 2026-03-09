@@ -22,30 +22,6 @@ if (storedLogo) {
     document.querySelector("#logo-display").src = storedLogo;
 }
 
-// async function decryptData() {
-//     const stored = JSON.parse(sessionStorage.getItem("data"));
-//     if (!stored) return null;
-
-//     // Import the key
-//     const key = await crypto.subtle.importKey(
-//         'jwk',
-//         stored.key,
-//         { name: 'AES-GCM', length: 256 },
-//         true,
-//         ['decrypt']
-//     );
-
-//     // Decrypt
-//     const decrypted = await crypto.subtle.decrypt(
-//         { name: 'AES-GCM', iv: new Uint8Array(stored.iv) },
-//         key,
-//         new Uint8Array(stored.encrypted)
-//     );
-
-//     // Parse back to object
-//     return JSON.parse(new TextDecoder().decode(decrypted));
-// }
-
 async function decryptData(item) {
     const stored = item
     if (!stored) return null;
@@ -112,4 +88,3 @@ function FillComments(input){
     document.querySelector("#improvements").textContent = input[6];
     document.querySelector("#send-signals-comment").textContent = input[7];
 }
-Print();

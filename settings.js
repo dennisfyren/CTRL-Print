@@ -1,8 +1,10 @@
+const MAX_SIZE = 120 * 1024;
+
 function pause (milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
-async function SaveToLocal() {
+function SaveToLocal() {
     const userName = document.querySelector("#username").value;
     const preferredMode = document.querySelector("#preferred-mode").value;
 
@@ -53,7 +55,7 @@ function LoadSettings(){
 
 }
 
-async function ClearLocal() {
+function ClearLocal() {
     localStorage.clear();
     Notify();
     location.reload();
@@ -64,6 +66,14 @@ customLogoInput.addEventListener("change", handleLogoChange);
 function handleLogoChange(event) {
     const file = event.target.files[0];
     if (file) {
+          if (!file.type.startsWith('image/')) {
+            alert("Only image files allowed.");
+            return;
+          } else if (file.size > MAX_SIZE) {
+        alert(`File too large. Max size is 30KB. You uploaded ${(file.size / 1024).toFixed(2)}KB.`);
+        event.target.value = ""; // Reset input so user can try again
+        return;
+            } else {
         const reader = new FileReader();
         reader.onload = function(e) {
             const dataURL = e.target.result;
@@ -72,4 +82,5 @@ function handleLogoChange(event) {
         };
         reader.readAsDataURL(file);
     }
+}
 }

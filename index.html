@@ -1,54 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTRL+Print</title>
-    <link href="print.css" media="print" rel="stylesheet" @page {margin: 0;}/>
-    <link rel="stylesheet" href="./style.css" media="all">
-    <script src="./scripts.js" defer></script>
-</head>
-<body id="set-theme" onload="LoadTheme(),setTheme(modeSelect)">
-    <div class="content">
-        <div class="header-index">
-            <img id="logo" src="resources/logoPNG.png" alt="CTRL+Print Logo">
-        </div>
-        <div>
-                <img src="resources/menu-alt-2-svgrepo-com.svg" id="menu-button" onclick="ToggleSidenav()">
-                <aside class="sidenav" id="sidenav">
-                <a href="index.html" id="home">Start</a>
-                <p id="create-2" onclick="ToggleLinks(), ToggleSidenav()">Skapa Nytt</p>
-                <!-- <a href="" id="load-2">Ladda</a> -->
-                <a href="settings.html" id="settings">Inställningar</a>
-                <a id="dark-mode" onclick="setTheme(change)">Ändra tema</a>
-                </aside>
-        </div>
-        <div class="page-content" onclick="CloseSideNav()">
-            <ul>
-                <li id="create" onclick="ToggleLinks()">Skapa</li>
-                <div id="hidden-links">
-                    <a href="brandlarm.html">
-                        <li class="hidden-links" id="first-link">Brandlarm</li>
-                    </a>
-                    <a href="inbrottslarm.html">
-                        <li class="hidden-links">Inbrottslarm</li>
-                    </a>
-                    <a href="ce.html">
-                        <li class="hidden-links">CE-Märkning</li>
-                    </a>
-                </div>
-                <!-- <li id="load"><a href="">Ladda</a></li> -->
-            </ul>
-        </div>
-        <div id="notify-settings" class="notify-settings">
-            <p>Gå in i inställningar och ställ in uppgifter för protokoll.</p>
-            <a href="settings.html">Inställningar</a>
-        </div>
-        <div class="footer">
-            <a href="about.html">About</a>
-            <p id="copy">©dennisfyren, 2026</p>
-            <p>v.0.4</p>
-        </div>
-    </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ctrl-print</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

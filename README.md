@@ -1,16 +1,56 @@
-# React + Vite
+# CTRL+Print WIP V.0.01
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Currently working on
 
-Currently, two official plugins are available:
+Pre-development planning and documentation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What is CTRL+Print
 
-## React Compiler
+CTRL+Print is a protocol writing app with custom protocols and easy to use interface for quick and painless protocols. After the wizard it exports directly to PDF via the browser's print API.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+CTRL+Print works entirely from your browser using React State to store the data, a local backup is also saved in sessionStorage. No data leaves your browser.
 
-## Expanding the ESLint configuration
+## Why am I building CTRL+Print?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Having been on the writing side of these protocols I'm a bit tired of the long and confusing processes to write a simple testing protocol. I want the app to be as simple as possible while packing as many features as possible. With the export directly to PDF I can focus on the "Writing" part instead of the storage/handling of the documents.
+
+## Who is CTRL+Print for?
+
+CTRL+Print is for technicians working with fire and break-in alarms. When the full app is finished it will be able to be used by everyone, but until the Protocol builder is implemented it will mainly be focused on technicians.
+
+## Main features / Upcoming features
+
+I will update this list progressively.
+
+- [ ] Writing protocols and printing them to PDF.
+- [ ] Persistent user settings per device.
+- [ ] Creating custom protocols.
+- [ ] Cloudflare Access. Only authenticated users will have access to the app.
+- [ ] Local PIN for extra protection.
+- [ ] Backend implementation.
+
+## Demo/Screenshots
+
+Coming soon...
+
+## Getting started
+
+### Using the App
+
+Open the link in any browser. Set user settings and go. Company logo can be imported in settings.
+
+### Running locally
+
+To run locally you need to download the files, open in terminal, install packages 'npm install' then run 'npm run dev' to start.
+
+## Tech stack
+
+CTRL+Print uses Vite with React + TailwindCSS for the frontend. It will be deployed to Cloudflare pages.
+
+## Contributing
+
+Not accepting contributions at this stage, but feel free to open an issue if you find bugs or have any suggestions.
+
+## License
+
+MIT

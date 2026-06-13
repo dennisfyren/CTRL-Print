@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
-function MenuButton({ label, handleClick, Logo = null, className = "" }) {
+function MenuButton({
+  label,
+  handleClick,
+  Logo = null,
+  className = "",
+  isActive = false,
+}) {
   return (
     <button
-      className={`${className} h-10 w-50 rounded text-white tracking-wider  hover:bg-main-orange-hover flex gap-2 items-center pl-2`}
+      className={`${className} ${isActive ? "bg-main-orange text-main-bg" : "text-main-inactive hover:bg-main-gray-hover hover:text-main-bg"} h-13 w-[90%] rounded-lg   tracking-wider   flex gap-2 items-center pl-2 duration-200 ease-in-out `}
       onClick={handleClick}
     >
-      {Logo && <Logo size={16} />}
+      {Logo && <Logo size={20} />}
       {label}
     </button>
   );

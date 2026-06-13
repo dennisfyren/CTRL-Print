@@ -5,14 +5,20 @@
 
 @theme {
   --font-sans: "Montserrat", sans-serif;
-  --color-main-bg: #f2ede8;
+  --color-main-bg: #f5f6fa;
   --color-main-gray: #6b5e57;
-  --color-main-dark-gray: #3d3530;
+  --color-main-gray-hover: #343949d0;
+  --color-main-dark-gray: #1a1d27;
   --color-main-orange: #e8520a;
   --color-main-orange-hover: #aa3b07;
+  --color-main-inactive: #8b8fa8;
 }
 
 .dark {
   --color-main-orange-hover: #aa3b07;
   --color-main-bg: #3d3530;
+}
+
+.test {
+  background-color: #343949d0;
 }

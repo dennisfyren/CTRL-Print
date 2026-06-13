@@ -5,17 +5,20 @@ import Brandlarm from "./Brandlarm";
 import Inbrottslarm from "./Inbrottslarm";
 import CE from "./CE";
 import Settings from "./Settings";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function Dashboard() {
   const [open, setOpen] = useState("dashboard");
-  const [userSettings, setUserSettings] = useState({});
+  const [userSettings, setUserSettings] = useLocalStorage("userSettings", {});
   const pages = {
     dashboard: <div>Dashboard</div>,
     builder: <Builder />,
     fire: <Brandlarm />,
     breakin: <Inbrottslarm />,
     ce: <CE />,
-    settings: <Settings />,
+    settings: (
+      <Settings userSettings={userSettings} setUserSettings={setUserSettings} />
+    ),
   };
 
   return (

@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Montserrat", sans-serif;
   --color-main-bg: #f5f6fa;
+  --color-main-bg-dark: #161820;
+  --color-sidebar-bg: #0f0f12;
   --color-main-gray: #6b5e57;
   --color-main-gray-hover: #343949d0;
   --color-main-dark-gray: #1a1d27;
@@ -12,8 +16,21 @@
   --color-main-inactive: #8b8fa8;
 }
 
+.no-transitions * {
+  transition: none !important;
+}
+
 body {
   font-family: var(--font-sans);
+  background-color: var(--color-main-bg);
+}
+
+.dark body {
+  background-color: var(--color-main-bg-dark);
+}
+
+.test {
+  background-color: #161820;
 }
 
 @keyframes fade-out {

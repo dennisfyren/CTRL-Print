@@ -2,6 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        const raw = localStorage.getItem("theme");
+        const theme = raw ? JSON.parse(raw) : null;
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        document.documentElement.classList.add("no-transitions");
+        if (theme === "dark" || (!theme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => {
+            document.documentElement.classList.remove("no-transitions");
+          }),
+        );
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/public/logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CTRL+Print</title>

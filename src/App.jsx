@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
+import { useDarkMode } from "./hooks/useDarkMode";
 
 function App() {
+  const [isDark, setIsDark] = useDarkMode();
+
   return (
-    <div className="bg-main-bg ">
-      <Dashboard />
+    <div className="">
+      <Dashboard isDark={isDark} setIsDark={setIsDark} />
     </div>
   );
 }

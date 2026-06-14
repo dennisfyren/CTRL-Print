@@ -50,8 +50,10 @@ function Settings({ userSettings, setUserSettings }) {
   }
   return (
     <div className="flex animate-fade-in">
-      <div className="flex flex-col gap-4 p-10 w-auto">
-        <h1 className="text-2xl font-semibold">Inställningar</h1>
+      <div className="flex flex-col gap-4 p-10 w-auto dark:text-white">
+        <h1 className="text-2xl font-semibold dark:text-white">
+          Inställningar
+        </h1>
         <TextInput
           label="Namn"
           id="name"

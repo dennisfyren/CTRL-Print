@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
 
-function TextInput({ label, placeholder, type = "text", className = "" }) {
+function TextInput({
+  label,
+  placeholder,
+  type = "text",
+  className = "",
+  id,
+  handleChange,
+  handleBlur,
+  value,
+}) {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState("");
-
-  const isFloating = isFocused || value.length > 0;
+  const isFloating = isFocused || value?.length > 0;
 
   return (
     <div className="flex gap-2 items-center relative">
@@ -19,19 +25,17 @@ function TextInput({ label, placeholder, type = "text", className = "" }) {
         {label}
       </p>
       <input
-        className={`${className} z-10 border border-main-gray rounded px-2 h-8`}
+        className={`${className} z-10 border border-main-gray rounded px-2 h-8 w-80 invalid:border-red-500 invalid:border-2`}
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-          setUserSettings((prev) => ({
-            ...prev,
-            [label]: e.target.value,
-          }));
-        }}
+        onChange={handleChange}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onBlur={() => {
+          setIsFocused(false);
+          handleBlur && handleBlur();
+        }}
+        id={id}
       />
     </div>
   );

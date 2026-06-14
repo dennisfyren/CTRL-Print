@@ -10,8 +10,10 @@ function useLocalStorage(label, data) {
     }
   });
   function setLocalStorage(dataToSet) {
-    setState(dataToSet);
-    localStorage.setItem(label, JSON.stringify(dataToSet));
+    const value =
+      typeof dataToSet === "function" ? dataToSet(state) : dataToSet;
+    setState(value);
+    localStorage.setItem(label, JSON.stringify(value));
   }
   return [state, setLocalStorage];
 }

@@ -9,7 +9,18 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 function Dashboard() {
   const [open, setOpen] = useState("dashboard");
-  const [userSettings, setUserSettings] = useLocalStorage("userSettings", {});
+  const [userSettings, setUserSettings] = useLocalStorage("userSettings", {
+    name: "",
+    company: "",
+    address: "",
+    postalCode: "",
+    city: "",
+    email: "",
+    phone: "",
+    website: "",
+    logo: "",
+  });
+
   const pages = {
     dashboard: <div>Dashboard</div>,
     builder: <Builder />,

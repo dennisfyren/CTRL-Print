@@ -23,7 +23,7 @@ CTRL+Print is for technicians working with fire and break-in alarms. When the fu
 I will update this list progressively.
 
 - [ ] Writing protocols and printing them to PDF.
-- [ ] Persistent user settings per device.
+- [x] Persistent user settings per device.
 - [ ] Creating custom protocols.
 - [ ] Cloudflare Access. Only authenticated users will have access to the app.
 - [ ] Local PIN for extra protection.

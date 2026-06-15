@@ -2,7 +2,7 @@
 
 ## Currently working on
 
-Pre-development planning and documentation.
+Page layout and protocol builder.
 
 ## What is CTRL+Print
 

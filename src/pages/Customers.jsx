@@ -1,7 +1,7 @@
 import React from "react";
 import { Construction } from "lucide-react";
 
-function Builder() {
+function Customers() {
   return (
     <div className="p-10 animate-fade-in">
       <h1 className="flex gap-2 text-2xl dark:text-main-text items-center">
@@ -12,4 +12,4 @@ function Builder() {
   );
 }
 
-export default Builder;
+export default Customers;

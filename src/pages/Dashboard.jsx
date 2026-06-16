@@ -6,6 +6,9 @@ import Inbrottslarm from "./Inbrottslarm";
 import CE from "./CE";
 import Settings from "./Settings";
 import useLocalStorage from "../hooks/useLocalStorage";
+import Quickstart from "./Quickstart";
+import Customers from "./Customers";
+import Protocol from "./Protocol";
 
 function Dashboard({ isDark, setIsDark }) {
   const [open, setOpen] = useState("dashboard");
@@ -22,14 +25,17 @@ function Dashboard({ isDark, setIsDark }) {
   });
 
   const pages = {
-    dashboard: <div>Dashboard</div>,
-    builder: <Builder />,
-    fire: <Brandlarm />,
-    breakin: <Inbrottslarm />,
-    ce: <CE />,
-    settings: (
+    dashboard: () => (
+      <Quickstart userSettings={userSettings} setOpen={setOpen} />
+    ),
+    builder: () => <Builder />,
+    fire: () => <Protocol page={"fire"} />,
+    breakin: () => <Protocol page={"breakin"} />,
+    ce: () => <Protocol page={"ce"} />,
+    settings: () => (
       <Settings userSettings={userSettings} setUserSettings={setUserSettings} />
     ),
+    customers: () => <Customers />,
   };
 
   return (
@@ -41,7 +47,7 @@ function Dashboard({ isDark, setIsDark }) {
         setIsDark={setIsDark}
       />
       <main className="p-5 flex-1 transition-colors duration-200 ease-in-out">
-        {pages[open]}
+        {pages[open]?.()}
       </main>
     </div>
   );

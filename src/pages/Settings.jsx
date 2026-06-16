@@ -115,7 +115,7 @@ function Settings({ userSettings, setUserSettings }) {
           type="tel"
         />
       </div>
-      <div className="flex flex-col gap-4 p-10 mt-10 ">
+      <div className="flex flex-col gap-4 p-10 mt-10">
         {userSettings.logo ? (
           <img
             className="rounded-lg my-4"
@@ -124,7 +124,7 @@ function Settings({ userSettings, setUserSettings }) {
             width="200"
           />
         ) : (
-          <p>Ingen bild uppladdad.</p>
+          <p className="dark:text-white">Ingen bild uppladdad.</p>
         )}
 
         <input
@@ -140,7 +140,7 @@ function Settings({ userSettings, setUserSettings }) {
             htmlFor="logo"
             className="relative bg-green-600 hover:bg-green-700 rounded px-4 py-2 w-full text-main-bg text-sm font-semibold text-center"
           >
-            <ImageUp className="absolute left-1 self-center" size={26} /> Ladda
+            <ImageUp className="absolute left-2 self-center" size={26} /> Ladda
             upp logo
           </label>
           <Button
@@ -148,7 +148,7 @@ function Settings({ userSettings, setUserSettings }) {
             logoSize={26}
             label="Rensa all data"
             handleClick={clearData}
-            className="col-span-2 w-full"
+            className="col-span-2 w-full bg-red-500 hover:bg-red-700"
           />
         </div>
         <p

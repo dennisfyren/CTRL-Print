@@ -25,7 +25,7 @@ function TextInput({
         {label}
       </p>
       <input
-        className={`${className} z-10 border border-main-gray rounded px-2 h-8 w-80 invalid:border-red-500 invalid:border-2 `}
+        className={`${className} z-10 border border-main-gray dark:border-gray-400 rounded px-2 h-10 w-80 invalid:border-red-500 invalid:border-2 `}
         type={type}
         placeholder={placeholder}
         value={value}

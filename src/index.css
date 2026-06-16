@@ -5,7 +5,7 @@
 
 @theme {
   --font-sans: "Montserrat", sans-serif;
-  --color-main-bg: #f5f6fa;
+  --color-main-bg: #f9fafb;
   --color-main-bg-dark: #161820;
   --color-sidebar-bg: #0f0f12;
   --color-main-gray: #6b5e57;
@@ -14,6 +14,11 @@
   --color-main-orange: #e8520a;
   --color-main-orange-hover: #aa3b07;
   --color-main-inactive: #8b8fa8;
+  --color-main-text: #f3f4f6;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .no-transitions * {

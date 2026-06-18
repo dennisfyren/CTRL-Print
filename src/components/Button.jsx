@@ -3,7 +3,7 @@ import React from "react";
 function Button({
   label,
   handleClick,
-  className = "w-50 bg-gray-500",
+  className = "w-50 bg-blue-500 hover:bg-blue-600",
   Logo = null,
   logoSize = 20,
 }) {

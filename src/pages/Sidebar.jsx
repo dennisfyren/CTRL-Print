@@ -3,8 +3,9 @@ import MenuButton from "../components/MenuButton";
 import logo from "../assets/logoPNG.png";
 import { Settings, Home, FileText, FilePlus } from "lucide-react";
 import SidebarFire from "./sidebar-selections/SidebarFire";
+import Button from "../components/Button";
 
-function Sidebar({ open, setOpen, isDark, setIsDark }) {
+function Sidebar({ open, setOpen, isDark, setIsDark, logout }) {
   return (
     <div className="flex flex-col h-screen lg:w-100 w-50 bg-main-dark-gray">
       <div
@@ -33,6 +34,11 @@ function Sidebar({ open, setOpen, isDark, setIsDark }) {
           className="mt-auto mb-4 bg-transparent"
           handleClick={() => setOpen("settings")}
           isActive={open === "settings"}
+        />
+        <Button
+          label={"Logga ut"}
+          className="bg-blue-500 hover:bg-blue-600 w-50 h-12 mb-6"
+          handleClick={() => logout()}
         />
       </div>
       <div className="flex flex-col mb-10 ml-10 gap-2">

@@ -9,8 +9,9 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import Quickstart from "./Quickstart";
 import Customers from "./Customers";
 import Protocol from "./Protocol";
+import { useAuth } from "../hooks/useAuth";
 
-function Dashboard({ isDark, setIsDark }) {
+function Dashboard({ isDark, setIsDark, logout, onSet }) {
   const [open, setOpen] = useState("dashboard");
   const [userSettings, setUserSettings] = useLocalStorage("userSettings", {
     name: "",
@@ -22,6 +23,7 @@ function Dashboard({ isDark, setIsDark }) {
     phone: "",
     website: "",
     logo: "",
+    password: "",
   });
 
   const pages = {
@@ -33,18 +35,24 @@ function Dashboard({ isDark, setIsDark }) {
     breakin: () => <Protocol page={"breakin"} />,
     ce: () => <Protocol page={"ce"} />,
     settings: () => (
-      <Settings userSettings={userSettings} setUserSettings={setUserSettings} />
+      <Settings
+        userSettings={userSettings}
+        setUserSettings={setUserSettings}
+        onSet={onSet}
+      />
     ),
     customers: () => <Customers />,
   };
 
   return (
     <div className="flex bg-main-bg dark:bg-main-bg-dark transition-colors duration-500 ease-in-out">
+      {}
       <Sidebar
         open={open}
         setOpen={setOpen}
         isDark={isDark}
         setIsDark={setIsDark}
+        logout={logout}
       />
       <main className="p-5 flex-1 transition-colors duration-200 ease-in-out">
         {pages[open]?.()}

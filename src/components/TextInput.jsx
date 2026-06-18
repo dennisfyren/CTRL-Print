@@ -9,6 +9,7 @@ function TextInput({
   handleChange,
   handleBlur,
   value,
+  onKeyDown,
 }) {
   const [isFocused, setIsFocused] = useState(false);
   const isFloating = isFocused || value?.length > 0;
@@ -36,6 +37,7 @@ function TextInput({
           handleBlur && handleBlur();
         }}
         id={id}
+        onKeyDown={onKeyDown}
       />
     </div>
   );

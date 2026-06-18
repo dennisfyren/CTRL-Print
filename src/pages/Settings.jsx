@@ -2,11 +2,16 @@ import React, { useRef, useState } from "react";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
 import { ImageUp, Trash } from "lucide-react";
+import { useAuth } from "../hooks/useAuth";
 
-function Settings({ userSettings, setUserSettings }) {
+function Settings({ userSettings, setUserSettings, onSet }) {
   const MAX_SIZE = 80 * 1024;
   const logoInputRef = useRef(null);
   const [saved, setSaved] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   function handleChange(e) {
     const { id, value } = e.target;
@@ -15,6 +20,14 @@ function Settings({ userSettings, setUserSettings }) {
   function handleBlur(e) {
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
+  }
+
+  async function handleSubmit() {
+    setError("");
+    setSuccess("");
+    if (password !== confirm) return setError("Lösenord matchar inte");
+    await onSet(password).then(setPassword("")).then(setConfirm(""));
+    setSuccess("Lösenord Ändrat");
   }
 
   function clearData() {
@@ -156,6 +169,42 @@ function Settings({ userSettings, setUserSettings }) {
         >
           Sparade!
         </p>
+        <div className="flex flex-col gap-2">
+          <div className="relative flex flex-col gap-2">
+            <TextInput
+              label={"Skriv nytt lösenord"}
+              className="dark:text-main-text"
+              value={password}
+              handleChange={(e) => setPassword(e.target.value)}
+              type="password"
+              onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+            />
+            <TextInput
+              label={"Upprepa nytt lösenord"}
+              className="dark:text-main-text"
+              value={confirm}
+              handleChange={(e) => setConfirm(e.target.value)}
+              type="password"
+              onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+            />
+            {error && (
+              <p className="text-red-500 absolute -bottom-7 animate-fade-in">
+                {error}
+              </p>
+            )}
+            {success && (
+              <p className="text-green-500 absolute -bottom-7 animate-fade-in">
+                {success}
+              </p>
+            )}
+          </div>
+
+          <Button
+            label={"Ändra lösenord"}
+            className="mt-8 bg-blue-500 hover:bg-blue-600 w-50"
+            handleClick={(e) => handleSubmit()}
+          />
+        </div>
       </div>
     </div>
   );

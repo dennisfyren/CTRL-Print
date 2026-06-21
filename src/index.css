@@ -56,10 +56,23 @@ body {
   }
 }
 
+@keyframes bounces {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: 5px;
+  }
+}
+
 @utility animate-fade-out {
   animation: fade-out 0.3s ease-out;
 }
 
 @utility animate-fade-in {
   animation: fade-in 0.4s ease-in;
+}
+
+@utility animate-bounces {
+  animation: bounces 100ms ease-in-out 3 alternate;
 }

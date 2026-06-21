@@ -27,7 +27,10 @@ function Settings({ userSettings, setUserSettings, onSet }) {
     setSuccess("");
     if (password !== confirm) return setError("Lösenord matchar inte");
     await onSet(password).then(setPassword("")).then(setConfirm(""));
-    setSuccess("Lösenord Ändrat");
+    setSuccess("Lösenord ändrat");
+    setTimeout(() => {
+      setSuccess("");
+    }, 2000);
   }
 
   function clearData() {
@@ -198,7 +201,6 @@ function Settings({ userSettings, setUserSettings, onSet }) {
               </p>
             )}
           </div>
-
           <Button
             label={"Ändra lösenord"}
             className="mt-8 bg-blue-500 hover:bg-blue-600 w-50"

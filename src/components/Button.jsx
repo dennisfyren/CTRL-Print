@@ -6,11 +6,13 @@ function Button({
   className = "w-50 bg-blue-500 hover:bg-blue-600",
   Logo = null,
   logoSize = 20,
+  disabled = false,
 }) {
   return (
     <button
       className={`${className} relative rounded px-4 py-2 text-main-text text-sm font-semibold`}
       onClick={handleClick}
+      disabled={disabled}
     >
       {Logo && <Logo size={logoSize} className="absolute left-2 self-center" />}
       {label}

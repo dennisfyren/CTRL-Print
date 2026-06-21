@@ -4,11 +4,11 @@ import Inbrottslarm from "./Inbrottslarm";
 import CE from "./CE";
 import Preview from "./Preview";
 
-function Protocol({ page }) {
+function Protocol({ page, userSettings }) {
   return (
     <div className="grid grid-cols-1 2xl:grid-cols-2 h-full animate-fade-in">
       <div className="2xl:border-r border-gray-300 dark:border-main-gray-hover py-10 overflow-y-scroll no-scrollbar">
-        {page === "fire" && <Brandlarm />}
+        {page === "fire" && <Brandlarm userSettings={userSettings} />}
         {page === "breakin" && <Inbrottslarm />}
         {page === "ce" && <CE />}
       </div>

@@ -9,10 +9,12 @@ function Login({ onLogin, resetApp }) {
   const [error, setError] = useState("");
   const [open, setOpen] = useState(false);
 
-  async function handleSubmit() {
-    setError("");
+  async function handleSubmit(e) {
     const success = await onLogin(password);
     if (!success) setError("Fel lösenord");
+    setTimeout(() => {
+      setError("");
+    }, 1500);
     setPassword("");
   }
 
@@ -27,10 +29,15 @@ function Login({ onLogin, resetApp }) {
         className="w-90 shadow p-12 rounded-2xl bg-main-orange mb-16"
         alt="logo"
       ></img>
-      <div className="flex rounded gap-4 justify-center">
-        <div className="flex gap-6 relative items-start">
+      <div className="flex rounded gap-4 justify-center relative">
+        {error && (
+          <h1 className="text-red-400 mt-7 justify-self-center absolute left-0 -top-16 animate-fade-in">
+            {error}
+          </h1>
+        )}
+        <div className={`flex gap-6 relative items-start`}>
           {!open && (
-            <div>
+            <div className={`${error && "animate-bounces"}`}>
               <TextInput
                 label={"Ange lösenord"}
                 className="dark:text-main-text "
@@ -39,11 +46,6 @@ function Login({ onLogin, resetApp }) {
                 type="password"
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               />
-              {error && (
-                <h1 className="text-red-400 mt-7 justify-self-center">
-                  {error}
-                </h1>
-              )}
             </div>
           )}
           {open && (
@@ -66,7 +68,7 @@ function Login({ onLogin, resetApp }) {
               <Button
                 label={"Logga in"}
                 className="bg-blue-500 hover:bg-blue-600 h-10 w-40"
-                handleClick={handleSubmit}
+                handleClick={(e) => handleSubmit(e)}
               />
             </div>
           )}

@@ -47,15 +47,15 @@ function Quickstart({ userSettings, setOpen }) {
           />
         </div>
       )}
-      {userSettings.name && (
+      {/* {userSettings.name && (
         <div className="flex mt-auto mb-5">
           <GeneralCard
             label={"Hantera Kunder"}
-            className="bg-blue-500 hover:bg-blue-600"
+            className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-700"
             handleClick={() => handleClick("customers")}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

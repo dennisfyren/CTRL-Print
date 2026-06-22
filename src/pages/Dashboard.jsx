@@ -12,7 +12,7 @@ import Protocol from "./Protocol";
 import { useAuth } from "../hooks/useAuth";
 
 function Dashboard({ isDark, setIsDark, logout, onSet }) {
-  const [open, setOpen] = useState("fire");
+  const [open, setOpen] = useState("dashboard");
   const [userSettings, setUserSettings] = useLocalStorage("userSettings", {
     name: "",
     company: "",

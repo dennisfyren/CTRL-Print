@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function TextInput({
-  label,
+function TextInputLarge({
+  label = "",
   extra,
   placeholder,
   type = "text",
@@ -23,23 +23,23 @@ function TextInput({
   const isFloating = isFocused || value?.length > 0;
 
   return (
-    <div className="flex gap-2 items-center relative transition-colors duration-500 ease-in-out">
+    <div className="flex gap-2 relative transition-colors duration-500 ease-in-out">
       <p
         className={`${isFloating ? "text-main-dark-gray z-20 translate-y-[-1.15rem] text-xs" : "text-main-gray text-sm"} absolute left-2 bg-main-bg dark:bg-main-bg-dark dark:text-white transition-all duration-200 px-1 pointer-events-none`}
       >
         {label}
         {extra && <span className="italic"> ({extra})</span>}
       </p>
-      <input
+      <textarea
         name={name}
-        className={`${className} z-10 border border-main-gray dark:border-gray-400 rounded px-2 h-10 w-80 invalid:border-red-500 invalid:border-2`}
+        className={`${className} z-10 border border-main-gray dark:border-gray-400 rounded px-2 h-18 w-80 invalid:border-red-500 invalid:border-2`}
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={(e) => {
           setInternalValue(e.target.value);
           handleChange?.(e);
-          handleDataChange?.({ [name ?? label]: e.target.value });
+          handleDataChange?.({ [name]: e.target.value });
         }}
         onFocus={() => setIsFocused(true)}
         onBlur={() => {
@@ -55,4 +55,4 @@ function TextInput({
   );
 }
 
-export default TextInput;
+export default TextInputLarge;

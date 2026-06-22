@@ -45,8 +45,7 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
   };
 
   return (
-    <div className="flex bg-main-bg dark:bg-main-bg-dark transition-colors duration-500 ease-in-out">
-      {}
+    <div className="flex bg-main-bg dark:bg-main-bg-dark transition-colors duration-500 ease-in-out h-screen">
       <Sidebar
         open={open}
         setOpen={setOpen}

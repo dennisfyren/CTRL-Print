@@ -26,7 +26,7 @@ I will update this list progressively.
 - [x] Persistent user settings per device.
 - [ ] Creating custom protocols.
 - [ ] Cloudflare Access. Only authenticated users will have access to the app.
-- [ ] Local PIN for extra protection.
+- [x] Local PIN/Password for extra protection.
 - [ ] Backend implementation.
 
 ## Demo/Screenshots

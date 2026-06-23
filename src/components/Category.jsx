@@ -10,12 +10,21 @@ import TextInputLarge from "./TextInputLarge";
 function Category({ label, inputs }) {
   const { data, setData } = useDataContext();
 
-  useEffect(() => {
-    console.log(data);
-   }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
-  function updateCategory(obj) {
-    setData((prev) => ({ ...prev, [label]: { ...prev[label], ...obj } }));
+  function updateCategory(obj, type, id) {
+    const resolvedType =
+      type === "radio" || type === "checkbox" ? type : "text";
+    setData((prev) => ({
+      ...prev,
+      [label]: {
+        ...prev[label],
+        ...obj,
+        _meta: { ...prev[label]?._meta, [id]: { type: resolvedType } },
+      },
+    }));
   }
 
   function updateComments(key, value) {
@@ -36,7 +45,7 @@ function Category({ label, inputs }) {
               label={input.label}
               extra={input.extra}
               options={input.options}
-              handleChange={(obj) => updateCategory(obj)}
+              handleChange={(obj) => updateCategory(obj, input.type, input.id)}
             />
           )}
           {input.type === "big-text" && (
@@ -56,7 +65,9 @@ function Category({ label, inputs }) {
                 label={input.label}
                 extra={input.extra}
                 options={input.options}
-                handleChange={(obj) => updateCategory(obj)}
+                handleChange={(obj) =>
+                  updateCategory(obj, input.type, input.id)
+                }
               />
               {data[label]?.[input.label]?.includes("Annan") && (
                 <div className="mt-4">

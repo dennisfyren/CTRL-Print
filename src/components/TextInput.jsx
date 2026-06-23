@@ -39,7 +39,7 @@ function TextInput({
         onChange={(e) => {
           setInternalValue(e.target.value);
           handleChange?.(e);
-          handleDataChange?.({ [name ?? label]: e.target.value });
+          handleDataChange?.({ [name ?? label]: { [label]: e.target.value } });
         }}
         onFocus={() => setIsFocused(true)}
         onBlur={() => {

@@ -13,7 +13,7 @@ function Protocol({ page, userSettings }) {
         {page === "ce" && <CE />}
       </div>
       <div className="p-10 hidden 2xl:block overflow-scroll no-scrollbar">
-        <Preview />
+        <Preview userSettings={userSettings} page={page} />
       </div>
     </div>
   );

@@ -10,9 +10,9 @@ import TextInputLarge from "./TextInputLarge";
 function Category({ label, inputs }) {
   const { data, setData } = useDataContext();
 
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
+  useEffect(() => {
+    console.log(data);
+   }, [data]);
 
   function updateCategory(obj) {
     setData((prev) => ({ ...prev, [label]: { ...prev[label], ...obj } }));

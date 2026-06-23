@@ -89,7 +89,7 @@ function Category({ label, inputs }) {
                 handleDataChange={(obj) => updateCategory(obj)}
               />
             )}
-          {data[label]?.[input.label]?.includes("Åtgärd behövs") && (
+          {data[label]?.[input.id]?.values?.includes("Åtgärd behövs") && (
             <TextInput
               name={`comment-${input.id}`}
               label="Notering"

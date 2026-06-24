@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function TextInput({
   label,
@@ -20,7 +20,13 @@ function TextInput({
   const [internalValue, setInternalValue] = useState(defaultValue);
 
   const value = externalValue ?? internalValue;
-  const isFloating = isFocused || value?.length > 0;
+  const isFloating = isFocused || value?.length > 0 || type === "date";
+
+  useEffect(() => {
+    if (defaultValue) {
+      handleDataChange?.({ [name ?? label]: { [label]: defaultValue } });
+    }
+  }, []);
 
   return (
     <div className="flex gap-2 items-center relative transition-colors duration-500 ease-in-out">
@@ -37,9 +43,14 @@ function TextInput({
         placeholder={placeholder}
         value={value}
         onChange={(e) => {
-          setInternalValue(e.target.value);
+          const val = e.target.value;
+          setInternalValue(val);
           handleChange?.(e);
-          handleDataChange?.({ [name ?? label]: { [label]: e.target.value } });
+          if (val === "") {
+            handleDataChange?.({ [name]: null });
+          } else {
+            handleDataChange?.({ [name]: { [label]: val } });
+          }
         }}
         onFocus={() => setIsFocused(true)}
         onBlur={() => {

@@ -1,15 +1,22 @@
 import React from "react";
 import DisplayText from "./displayData/DisplayText";
 
-function PreviewCard({ data, key }) {
-  const type = data?._meta?.["control-type"]?.type;
+function PreviewCard({
+  title = "",
+  number,
+  data,
+  className = "border border-t-2 mt-3 p-2",
+}) {
+  if (!data) return null;
+
   return (
-    <div>
-      {type === "radio" && <p>radio</p>}
-      {type === "checkbox" && <p>Checkbox</p>}
-      {type !== "radio" && type !== "checkbox" && (
-        <DisplayText data={data} key={key} />
-      )}
+    <div className={`${className} `}>
+      <h1 className="text-lg">
+        {number && `${number}.`} {title}
+      </h1>
+      <div className="ml-4">
+        <DisplayText data={data} number={number} />
+      </div>
     </div>
   );
 }

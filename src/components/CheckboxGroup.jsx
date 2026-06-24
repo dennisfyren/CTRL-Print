@@ -9,7 +9,12 @@ function CheckboxGroup({ label, name, extra, options, handleChange }) {
       : [...selected, option];
 
     setSelected(updated);
-    handleChange({ [name]: { label, values: updated } });
+
+    if (updated.length === 0) {
+      handleChange({ [name]: null });
+    } else {
+      handleChange({ [name]: { label, values: updated } });
+    }
   }
 
   return (

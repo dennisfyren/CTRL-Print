@@ -14,23 +14,29 @@ function Category({ label, inputs }) {
   //   console.log(data);
   // }, [data]);
 
-  function updateCategory(obj, type, id) {
-    const resolvedType =
-      type === "radio" || type === "checkbox" ? type : "text";
-    setData((prev) => ({
-      ...prev,
-      [label]: {
-        ...prev[label],
-        ...obj,
-        _meta: { ...prev[label]?._meta, [id]: { type: resolvedType } },
-      },
-    }));
+  function updateCategory(obj) {
+    setData((prev) => {
+      const updatedCategory = { ...prev[label] };
+
+      Object.entries(obj).forEach(([key, value]) => {
+        if (value === null || value?.[Object.keys(value)[0]] === "") {
+          delete updatedCategory[key];
+        } else {
+          updatedCategory[key] = value;
+        }
+      });
+
+      return { ...prev, [label]: updatedCategory };
+    });
   }
 
   function updateComments(key, value) {
     setData((prev) => ({
       ...prev,
-      comments: { ...prev.comments, [key]: value },
+      [label]: {
+        ...prev[label],
+        [`comment-${key}`]: value,
+      },
     }));
   }
 
@@ -45,7 +51,7 @@ function Category({ label, inputs }) {
               label={input.label}
               extra={input.extra}
               options={input.options}
-              handleChange={(obj) => updateCategory(obj, input.type, input.id)}
+              handleChange={(obj) => updateCategory(obj)}
             />
           )}
           {input.type === "big-text" && (
@@ -65,16 +71,15 @@ function Category({ label, inputs }) {
                 label={input.label}
                 extra={input.extra}
                 options={input.options}
-                handleChange={(obj) =>
-                  updateCategory(obj, input.type, input.id)
-                }
+                handleChange={(obj) => updateCategory(obj)}
               />
-              {data[label]?.[input.label]?.includes("Annan") && (
+              {data[label]?.[input.id]?.values?.includes("Annan") && (
                 <div className="mt-4">
                   <TextInput
                     name={`other-${input.id}`}
                     label="Annan typ"
                     className="animate-fade-in"
+                    clearOnUnmount
                     handleDataChange={(obj) =>
                       updateComments(
                         `${input.id}-type`,

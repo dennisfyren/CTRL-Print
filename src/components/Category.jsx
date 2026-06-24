@@ -106,14 +106,16 @@ function Category({ label, inputs }) {
               />
             )}
           {data[label]?.[input.id]?.values?.includes("Åtgärd behövs") && (
-            <TextInput
-              name={`comment-${input.id}`}
-              label="Notering"
-              className="animate-fade-in mt-4"
-              handleDataChange={(obj) =>
-                updateComments(input.id, obj[`comment-${input.id}`])
-              }
-            />
+            <div className="mt-4">
+              <TextInput
+                name={`comment-${input.id}`}
+                label="Notering"
+                className="animate-fade-in"
+                handleDataChange={(obj) =>
+                  updateComments(input.id, obj[`comment-${input.id}`])
+                }
+              />
+            </div>
           )}
         </div>
       ))}

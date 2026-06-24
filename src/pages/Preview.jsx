@@ -12,11 +12,12 @@ const A4_HEIGHT = 1123;
 
 // 1123
 
-function Preview({ userSettings, page }) {
+function Preview({ userSettings, page, setOpen }) {
   const containerRef = useRef(null);
   const logo = userSettings?.logo;
   const { data } = useDataContext();
   const [scale, setScale] = useState(1);
+  const [clicked, setClicked] = useState(false);
 
   function setControlType(type) {
     switch (type) {
@@ -30,6 +31,11 @@ function Preview({ userSettings, page }) {
         return "CE-Märkning";
         break;
     }
+  }
+
+  function handleClick() {
+    setClicked((prev) => !prev);
+    setOpen("preview");
   }
 
   useEffect(() => {
@@ -51,10 +57,12 @@ function Preview({ userSettings, page }) {
       className="flex items-center justify-center w-full h-full overflow-hidden relative"
     >
       <Button
-        label={"Print"}
-        className="absolute bottom-16 left-8 h-12 w-32 opacity-75 hover:opacity-80 bg-blue-500 hover:bg-blue-600 z-999"
+        label={clicked ? "Edit" : "Print"}
+        className={`absolute top-0 left-0 h-12 w-32 opacity-75 hover:opacity-80 ${clicked ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"} z-999`}
         Logo={Printer}
-        handleClick={() => {}}
+        handleClick={() => {
+          handleClick();
+        }}
       />
       <div
         style={{
@@ -67,16 +75,15 @@ function Preview({ userSettings, page }) {
         }}
         className="px-8 py-5 text-xs"
       >
-        <div className="grid grid-cols-[1fr_2fr_1fr] text-center">
+        <div className="grid grid-cols-[1fr_2fr_1fr] text-center mb-2">
           {<img src={logo} className="h-12"></img>}
           <h1 className="font-semibold text-sm">{setControlType(page)}</h1>
           <div className="text-xs flex flex-col items-start">
             <p>{userSettings?.company}</p>
             <p>{userSettings?.address}</p>
-            <p>
+            <p className="mb-[0.3rem]">
               {userSettings?.postalCode} {userSettings?.city}
             </p>
-            <br />
             <p>{userSettings?.email}</p>
             <p>{userSettings?.phone}</p>
           </div>
@@ -85,7 +92,6 @@ function Preview({ userSettings, page }) {
           <PreviewCard data={data["Kunduppgifter"]} className="" />
           <PreviewCard data={data["Kontaktuppgifter"]} className="" />
         </div>
-        <LineBreak />
         <PreviewCard
           data={data["Centralapparat"]}
           title={"Centralapparat"}

@@ -4,7 +4,7 @@ import Inbrottslarm from "./Inbrottslarm";
 import CE from "./CE";
 import Preview from "./Preview";
 
-function Protocol({ page, userSettings }) {
+function Protocol({ page, userSettings, setOpen }) {
   return (
     <div className="grid grid-cols-1 2xl:grid-cols-2 h-full animate-fade-in">
       <div className="2xl:border-r border-gray-300 dark:border-main-gray-hover py-10 overflow-y-scroll no-scrollbar">
@@ -13,7 +13,7 @@ function Protocol({ page, userSettings }) {
         {page === "ce" && <CE />}
       </div>
       <div className="p-10 hidden 2xl:block overflow-scroll no-scrollbar">
-        <Preview userSettings={userSettings} page={page} />
+        <Preview userSettings={userSettings} page={page} setOpen={setOpen} />
       </div>
     </div>
   );

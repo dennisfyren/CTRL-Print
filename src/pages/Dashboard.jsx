@@ -10,9 +10,10 @@ import Quickstart from "./Quickstart";
 import Customers from "./Customers";
 import Protocol from "./Protocol";
 import { useAuth } from "../hooks/useAuth";
+import Preview from "./Preview";
 
 function Dashboard({ isDark, setIsDark, logout, onSet }) {
-  const [open, setOpen] = useState("fire");
+  const [open, setOpen] = useState("dashboard");
   const [userSettings, setUserSettings] = useLocalStorage("userSettings", {
     name: "",
     company: "",
@@ -23,7 +24,6 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
     phone: "",
     website: "",
     logo: "",
-    password: "",
   });
 
   const pages = {
@@ -31,7 +31,9 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
       <Quickstart userSettings={userSettings} setOpen={setOpen} />
     ),
     builder: () => <Builder />,
-    fire: () => <Protocol page={"fire"} userSettings={userSettings} />,
+    fire: () => (
+      <Protocol page={"fire"} userSettings={userSettings} setOpen={setOpen} />
+    ),
     breakin: () => <Protocol page={"breakin"} />,
     ce: () => <Protocol page={"ce"} />,
     settings: () => (
@@ -42,6 +44,7 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
       />
     ),
     customers: () => <Customers />,
+    preview: () => <Preview setOpen={setOpen} userSettings={userSettings} />,
   };
 
   return (

@@ -27,7 +27,6 @@ function Sidebar({ open, setOpen, isDark, setIsDark, logout }) {
           handleClick={() => setOpen("builder")}
           isActive={open === "builder"}
         />
-        {open === "fire" && <SidebarFire />}
         <MenuButton
           label={"Inställningar"}
           Logo={Settings}
@@ -41,18 +40,27 @@ function Sidebar({ open, setOpen, isDark, setIsDark, logout }) {
           handleClick={() => logout()}
         />
       </div>
-      <div className="flex flex-col mb-10 ml-10 gap-2">
-        <p className="text-main-inactive text-xs ml-1">
-          {isDark ? "Ljust läge" : "Mörkt läge"}
-        </p>
-        <button
-          className="relative rounded-full h-6 bg-zinc-300 w-16"
-          onClick={() => setIsDark(!isDark)}
-        >
-          <div
-            className={`absolute h-5 w-5 bg-main-dark-gray rounded-full mx-[0.1rem] translate-transform duration-200 self-center ${isDark ? "translate-x-10" : "translate-x-0"} `}
-          ></div>
-        </button>
+      <div className="flex items-center">
+        <div className="flex flex-col mb-10 ml-10 gap-2">
+          <p className="text-main-inactive text-xs ml-1">
+            {isDark ? "Ljust läge" : "Mörkt läge"}
+          </p>
+          <button
+            className="relative rounded-full h-6 bg-zinc-300 w-16"
+            onClick={() => setIsDark(!isDark)}
+          >
+            <div
+              className={`absolute h-5 w-5 bg-main-dark-gray rounded-full mx-[0.1rem] translate-transform duration-200 self-center ${isDark ? "translate-x-10" : "translate-x-0"} `}
+            ></div>
+          </button>
+        </div>
+        <Button
+          label={"About"}
+          className="ml-auto mr-4 hover:text-main-inactive"
+          handleClick={() => {
+            setOpen("about");
+          }}
+        />
       </div>
     </div>
   );

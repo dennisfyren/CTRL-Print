@@ -54,8 +54,8 @@ function Brandlarm({ userSettings }) {
         inputs={[
           { label: "Typ", id: "c-type" },
           { label: "Antal sektioner", id: "c-sections", type: "number" },
-          { label: "Laddspänning", id: "c-charge" },
-          { label: "Strömförbrukning", id: "c-current" },
+          { label: "Laddspänning", id: "c-charge", extra: "V" },
+          { label: "Strömförbrukning", id: "c-current", extra: "Ah" },
           { label: "Version", id: "c-version" },
           {
             label: "Display/Summer",
@@ -73,6 +73,16 @@ function Brandlarm({ userSettings }) {
               "Åtgärd behövs",
               "Funktion saknas",
             ],
+          },
+        ]}
+      />
+      <Category
+        label={"Sektionsprov"}
+        inputs={[
+          {
+            label: "Kontroll sektion",
+            id: "section-control",
+            type: "list",
           },
         ]}
       />
@@ -177,12 +187,6 @@ function Brandlarm({ userSettings }) {
             id: "send-character",
             type: "checkbox",
             options: ["Brandlarm", "Fellarm", "Annan"],
-          },
-          {
-            label: "Status",
-            id: "send-status",
-            type: "checkbox",
-            options: ["Kontrollerad OK", "Åtgärd behövs"],
           },
         ]}
       />

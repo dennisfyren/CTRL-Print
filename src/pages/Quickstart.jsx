@@ -40,11 +40,11 @@ function Quickstart({ userSettings, setOpen }) {
             className="bg-gray-200 dark:bg-main-gray-hover"
             handleClick={() => handleClick("breakin")}
           />
-          <Card
+          {/* <Card
             label={"CE-Märkning"}
             className="bg-gray-200 dark:bg-main-gray-hover"
             handleClick={() => handleClick("ce")}
-          />
+          /> */}
         </div>
       )}
       {/* {userSettings.name && (

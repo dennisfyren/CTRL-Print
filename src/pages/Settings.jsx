@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
-import { ImageUp, Trash } from "lucide-react";
+import { ImageUp, KeyRound, Trash } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 
 function Settings({ userSettings, setUserSettings, onSet }) {
@@ -107,14 +107,6 @@ function Settings({ userSettings, setUserSettings, onSet }) {
           handleBlur={handleBlur}
         />
         <TextInput
-          label="Hemsida"
-          id="website"
-          value={userSettings.website}
-          handleChange={handleChange}
-          handleBlur={handleBlur}
-          type="text"
-        />
-        <TextInput
           label="E-post"
           id="email"
           value={userSettings.email}
@@ -164,14 +156,16 @@ function Settings({ userSettings, setUserSettings, onSet }) {
             logoSize={26}
             label="Rensa all data"
             handleClick={clearData}
-            className="col-span-2 w-full bg-red-500 hover:bg-red-700"
+            className="bg-red-500 hover:bg-red-700 relative"
           />
         </div>
+
         <p
           className={`text-green-700 transition-opacity duration-300 ${saved ? "opacity-100" : "opacity-0"}`}
         >
           Sparade!
         </p>
+
         <div className="flex flex-col gap-2">
           <div className="relative flex flex-col gap-2">
             <TextInput
@@ -203,8 +197,9 @@ function Settings({ userSettings, setUserSettings, onSet }) {
           </div>
           <Button
             label={"Ändra lösenord"}
-            className="mt-8 bg-blue-500 hover:bg-blue-600 w-50"
+            className="mt-8 bg-blue-500 hover:bg-blue-600 w-50 relative"
             handleClick={(e) => handleSubmit()}
+            Logo={KeyRound}
           />
         </div>
       </div>

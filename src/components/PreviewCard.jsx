@@ -10,7 +10,10 @@ function PreviewCard({
   if (!data) return null;
 
   return (
-    <div className={`${className} animate-fade-in`}>
+    <div
+      style={{ breakInside: "avoid" }}
+      className={`${className} animate-fade-in`}
+    >
       <h1 className="text-lg">
         {number && `${number}.`} {title}
       </h1>

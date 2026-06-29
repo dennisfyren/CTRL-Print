@@ -1,9 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import useSessionStorage from "./useSessionStorage";
 
 export const DataContext = createContext(null);
 
 export function DataProvider({ children }) {
-  const [data, setData] = useState({ comments: {} });
+  const [data, setData] = useSessionStorage("ctrl_print_data", {
+    comments: {},
+  });
 
   return (
     <DataContext.Provider value={{ data, setData }}>

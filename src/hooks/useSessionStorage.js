@@ -1,18 +1,25 @@
 import { useState } from "react";
 
-function useSessionStorage(label, data) {
+function useSessionStorage(label, initialValue) {
   const [state, setState] = useState(() => {
     try {
-      const item = JSON.parse(sessionStorage.getItem(label));
-      return item ? item : data;
+      const item = sessionStorage.getItem(label);
+      return item ? JSON.parse(item) : initialValue;
     } catch {
-      return data;
+      return initialValue;
     }
   });
-  function setSessionStorage(dataToSet) {
-    setState(dataToSet);
-    sessionStorage.setItem(label, JSON.stringify(dataToSet));
+
+  function setSessionStorage(valueOrUpdater) {
+    const nextValue =
+      typeof valueOrUpdater === "function"
+        ? valueOrUpdater(state)
+        : valueOrUpdater;
+
+    setState(nextValue);
+    sessionStorage.setItem(label, JSON.stringify(nextValue));
   }
+
   return [state, setSessionStorage];
 }
 

@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 
-function CheckboxGroup({ label, name, extra, options, handleChange }) {
-  const [selected, setSelected] = useState([]);
-
+function CheckboxGroup({
+  label,
+  name,
+  extra,
+  options,
+  value = [],
+  handleChange,
+}) {
   function handleCheck(option) {
-    const updated = selected.includes(option)
-      ? selected.filter((o) => o !== option)
-      : [...selected, option];
+    const updated = value.includes(option)
+      ? value.filter((o) => o !== option)
+      : [...value, option];
 
-    setSelected(updated);
-
-    if (updated.length === 0) {
-      handleChange({ [name]: null });
-    } else {
-      handleChange({ [name]: { label, values: updated } });
-    }
+    handleChange(
+      updated.length === 0
+        ? { [name]: null }
+        : { [name]: { label, values: updated } },
+    );
   }
 
   return (
@@ -28,7 +31,7 @@ function CheckboxGroup({ label, name, extra, options, handleChange }) {
           <input
             id={option}
             type="checkbox"
-            checked={selected.includes(option)}
+            checked={value.includes(option)}
             onChange={() => handleCheck(option)}
           />
           <label htmlFor={option}>{option}</label>

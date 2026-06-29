@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Sidebar from "./Sidebar";
 import Builder from "./Builder";
 import Brandlarm from "./Brandlarm";
@@ -6,14 +6,16 @@ import Inbrottslarm from "./Inbrottslarm";
 import CE from "./CE";
 import Settings from "./Settings";
 import useLocalStorage from "../hooks/useLocalStorage";
+import useSessionStorage from "../hooks/useSessionStorage";
 import Quickstart from "./Quickstart";
 import Customers from "./Customers";
 import Protocol from "./Protocol";
 import { useAuth } from "../hooks/useAuth";
 import Preview from "./Preview";
+import About from "./About";
 
 function Dashboard({ isDark, setIsDark, logout, onSet }) {
-  const [open, setOpen] = useState("dashboard");
+  const [open, setOpen] = useSessionStorage("dashboard_open", "dashboard");
   const [userSettings, setUserSettings] = useLocalStorage("userSettings", {
     name: "",
     company: "",
@@ -22,7 +24,6 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
     city: "",
     email: "",
     phone: "",
-    website: "",
     logo: "",
   });
 
@@ -34,7 +35,13 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
     fire: () => (
       <Protocol page={"fire"} userSettings={userSettings} setOpen={setOpen} />
     ),
-    breakin: () => <Protocol page={"breakin"} />,
+    breakin: () => (
+      <Protocol
+        page={"breakin"}
+        userSettings={userSettings}
+        setOpen={setOpen}
+      />
+    ),
     ce: () => <Protocol page={"ce"} />,
     settings: () => (
       <Settings
@@ -45,6 +52,7 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
     ),
     customers: () => <Customers />,
     preview: () => <Preview setOpen={setOpen} userSettings={userSettings} />,
+    about: () => <About />,
   };
 
   return (

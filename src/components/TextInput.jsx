@@ -15,18 +15,26 @@ function TextInput({
   defaultValue = "",
   Logo = undefined,
   name,
+  unit = "",
 }) {
   const [isFocused, setIsFocused] = useState(false);
-  const [internalValue, setInternalValue] = useState(defaultValue);
+  const [internalValue, setInternalValue] = useState(
+    () => externalValue ?? defaultValue,
+  );
 
   const value = externalValue ?? internalValue;
   const isFloating = isFocused || value?.length > 0 || type === "date";
 
   useEffect(() => {
-    if (defaultValue) {
+    if (externalValue === undefined) {
+      setInternalValue(defaultValue ?? "");
+    }
+  }, [defaultValue, externalValue]);
+  useEffect(() => {
+    if (externalValue === undefined && defaultValue) {
       handleDataChange?.({ [name ?? label]: { [label]: defaultValue } });
     }
-  }, []);
+  }, [defaultValue, externalValue, handleDataChange, name, label]);
 
   return (
     <div className="flex gap-2 items-center relative transition-colors duration-500 ease-in-out">

@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function RadioGroup({ label, name, extra, options, handleChange }) {
-  const [selected, setSelected] = useState("");
-
+function RadioGroup({ label, name, extra, options, value = "", handleChange }) {
   return (
     <div className="flex flex-col items-start gap-1">
       <h1 className="text-xl mb-2">
@@ -16,9 +14,8 @@ function RadioGroup({ label, name, extra, options, handleChange }) {
             type="radio"
             name={label}
             value={option}
-            checked={selected === option}
+            checked={value === option}
             onChange={(e) => {
-              setSelected(e.target.value);
               handleChange({ [name]: { label, values: [e.target.value] } });
             }}
           />

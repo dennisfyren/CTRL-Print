@@ -214,7 +214,7 @@ function Category({ label, inputs }) {
   // ---------------- RENDER ----------------
 
   return (
-    <div className="dark:text-main-text flex flex-col gap-4 p-5">
+    <div className="dark:text-main-text flex flex-col gap-4 sm:p-5 py-2">
       <h1 className="text-2xl">{label}</h1>
 
       {inputs?.map((input) => (
@@ -263,17 +263,18 @@ function Category({ label, inputs }) {
             <div className="ml-5">
               <h1 className="text-xl">{input.label}</h1>
 
-              <div className="flex flex-col gap-3 p-3">
+              <div className="flex flex-col gap-3 py-3 px-1">
                 {getListValues(input.id).map((item, index) => (
                   <div
                     key={`${input.id}-${index}`}
-                    className="rounded w-130 bg-gray-100 dark:bg-gray-800 p-3 flex flex-col gap-2"
+                    className="rounded sm:w-130 w-72 bg-gray-100 dark:bg-gray-800 px-2 py-3 flex flex-col gap-2"
                   >
                     <div className="flex justify-between relative">
                       <span>{item.value}</span>
                       <Button
                         className="absolute top-0 right-0 cursor-pointer text-red-500"
                         Logo={X}
+                        logoSize={26}
                         handleClick={() =>
                           removeListItem(input.id, index, input.label)
                         }
@@ -281,7 +282,7 @@ function Category({ label, inputs }) {
                     </div>
 
                     {/* STATUS */}
-                    <div className="flex gap-4 text-sm">
+                    <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
                       <label className="flex items-center gap-2">
                         <input
                           type="radio"
@@ -298,7 +299,7 @@ function Category({ label, inputs }) {
                         />
                         Kontrollerad OK
                       </label>
-                      <label className="flex items-center gap-2">
+                      <label className="flex items-center gap-2 mb-2">
                         <input
                           type="radio"
                           name={`${input.id}-${index}`}
@@ -338,7 +339,7 @@ function Category({ label, inputs }) {
               </div>
 
               {/* ADD ITEM */}
-              <div className="flex mt-2">
+              <div className="flex mt-2 items-center">
                 <TextInput
                   value={listInputs[input.id] ?? ""}
                   label="Sektion"
@@ -358,7 +359,7 @@ function Category({ label, inputs }) {
                 <Button
                   Logo={Plus}
                   logoSize={24}
-                  className="relative bg-green-500 hover:bg-green-600 w-10 ml-4"
+                  className="relative bg-green-500 hover:bg-green-600 w-10 h-10 ml-4"
                   handleClick={() => addListItem(input.id, input.label)}
                 />
               </div>
@@ -427,7 +428,7 @@ function Category({ label, inputs }) {
                 {getListValues(input.id).map((item, index) => (
                   <div
                     key={`${input.id}-${index}`}
-                    className="rounded w-130 bg-gray-100 dark:bg-gray-800 p-3 flex flex-col gap-2"
+                    className="rounded sm:w-130 w-72 bg-gray-100 dark:bg-gray-800 px-2 py-3 flex flex-col gap-2"
                   >
                     <div className="flex justify-between relative">
                       <span className="font-medium">{item.value}</span>
@@ -436,6 +437,7 @@ function Category({ label, inputs }) {
                         <Button
                           className="absolute top-0 right-0 cursor-pointer text-red-500"
                           Logo={X}
+                          logoSize={24}
                           handleClick={() =>
                             removeListItem(input.id, index, input.label)
                           }
@@ -443,9 +445,10 @@ function Category({ label, inputs }) {
                       )}
                     </div>
 
-                    <div className="flex gap-4 text-sm">
+                    <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
                       <label className="flex items-center gap-2">
                         <input
+                          className="w-5 h-5"
                           type="radio"
                           name={`${input.id}-${index}`}
                           checked={item.status === "Kontrollerad OK"}
@@ -460,7 +463,7 @@ function Category({ label, inputs }) {
                         />
                         Kontrollerad OK
                       </label>
-                      <label className="flex items-center gap-2">
+                      <label className="flex items-center gap-2 ">
                         <input
                           type="radio"
                           name={`${input.id}-${index}`}
@@ -499,7 +502,7 @@ function Category({ label, inputs }) {
               </div>
 
               {/* ADD CUSTOM ITEM */}
-              <div className="flex">
+              <div className="flex mt-3">
                 <TextInput
                   value={listInputs[input.id] ?? ""}
                   label="Annan"
@@ -519,7 +522,7 @@ function Category({ label, inputs }) {
                 <Button
                   Logo={Plus}
                   logoSize={24}
-                  className="relative bg-green-500 hover:bg-green-600 w-10 ml-4"
+                  className="relative bg-green-500 hover:bg-green-600 w-10 h-10 ml-4"
                   handleClick={() => addListItem(input.id, input.label)}
                 />
               </div>
@@ -547,7 +550,7 @@ function Category({ label, inputs }) {
 
           {/* GLOBAL COMMENT (non-list) */}
           {data[label]?.[input.id]?.values?.includes("Åtgärd behövs") && (
-            <div className="mt-4">
+            <div className="mt-4 ml-4">
               <TextInput
                 name={`comment-${input.id}`}
                 label="Notering"

@@ -65,8 +65,8 @@ function Settings({ userSettings, setUserSettings, onSet }) {
     reader.readAsDataURL(file);
   }
   return (
-    <div className="flex animate-fade-in">
-      <div className="flex flex-col gap-4 p-10 w-auto dark:text-white">
+    <div className="flex flex-col md:flex-row animate-fade-in items-center sm:items-start">
+      <div className="flex flex-col gap-4 sm:py-22 px-10 w-auto dark:text-white text-center sm:text-start">
         <h1 className="text-2xl font-semibold dark:text-white">
           Inställningar
         </h1>
@@ -123,7 +123,7 @@ function Settings({ userSettings, setUserSettings, onSet }) {
           type="tel"
         />
       </div>
-      <div className="flex flex-col gap-4 p-10 mt-10">
+      <div className="flex flex-col gap-4 p-10 sm:mt-10 items-center sm:items-start">
         {userSettings.logo ? (
           <img
             className="rounded-lg my-4"
@@ -166,7 +166,7 @@ function Settings({ userSettings, setUserSettings, onSet }) {
           Sparade!
         </p>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 items-center sm:items-start">
           <div className="relative flex flex-col gap-2">
             <TextInput
               label={"Skriv nytt lösenord"}

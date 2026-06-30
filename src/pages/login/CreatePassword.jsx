@@ -19,11 +19,11 @@ function CreatePassword({ onSet }) {
     <div className="flex flex-col justify-center items-center h-screen gap-10 bg-main-bg">
       <img
         src={logo}
-        className="w-90 dark:bg-main-bg-dark bg-main-inactive p-12 rounded-2xl"
+        className="w-64 sm:w-80 md:w-90 dark:bg-main-bg-dark bg-main-inactive p-12 rounded-2xl"
         alt="logo"
       ></img>
-      <div className="flex h-32 rounded gap-4 justify-center">
-        <div className="flex flex-col gap-3 relative">
+      <div className="flex flex-col sm:flex-row h-32 rounded gap-4 justify-center">
+        <div className="flex flex-col gap-3 relative sm:items-start items-center">
           <h1 className="dark:text-main-text">Ange ett nytt lösenord</h1>
           <TextInput
             label={"Ange lösenord"}
@@ -47,7 +47,7 @@ function CreatePassword({ onSet }) {
         </div>
         <Button
           label={"Save"}
-          className="bg-blue-500 hover:bg-blue-600 w-25 h-28 self-end"
+          className="bg-blue-500 hover:bg-blue-600 w-25 h-28 self-center sm:self-end"
           handleClick={handleClick}
         />
       </div>

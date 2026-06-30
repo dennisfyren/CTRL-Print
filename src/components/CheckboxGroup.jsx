@@ -27,8 +27,9 @@ function CheckboxGroup({
         {extra && <span className="italic"> ({extra})</span>}
       </h1>
       {options.map((option) => (
-        <div key={option} className="flex items-center gap-2 ml-6">
+        <div key={option} className="flex items-center gap-2 ml-4">
           <input
+            className="w-6 h-6 accent-main-orange mb-1"
             id={option}
             type="checkbox"
             checked={value.includes(option)}

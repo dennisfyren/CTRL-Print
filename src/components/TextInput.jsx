@@ -37,16 +37,16 @@ function TextInput({
   }, [defaultValue, externalValue, handleDataChange, name, label]);
 
   return (
-    <div className="flex gap-2 items-center relative transition-colors duration-500 ease-in-out">
+    <div className="flex gap-2 items-center relative transition-colors duration-500 ease-in-out ml-1 sm:ml-0">
       <p
-        className={`${isFloating ? "text-main-dark-gray z-20 translate-y-[-1.15rem] text-xs" : "text-main-gray text-sm"} absolute left-2 bg-main-bg dark:bg-main-bg-dark dark:text-white transition-all duration-200 px-1 pointer-events-none`}
+        className={`${isFloating ? " dark:text-main-text z-20 translate-y-[-1.45rem] text-xs border rounded-xl bg-gray-100 dark:bg-gray-700 px-3" : "text-main-gray text-sm"} absolute left-2 dark:text-white duration-150 px-1 pointer-events-none`}
       >
         {label}
         {extra && <span className="italic"> ({extra})</span>}
       </p>
       <input
         name={name}
-        className={`${className} z-10 border border-main-gray dark:border-gray-400 rounded px-2 h-10 w-80 invalid:border-red-500 invalid:border-2`}
+        className={`${className} z-10 border border-main-gray dark:border-gray-400 rounded px-2 h-12 pt-2 w-56 sm:w-80 invalid:border-red-500 invalid:border-2`}
         type={type}
         placeholder={placeholder}
         value={value}
@@ -69,7 +69,7 @@ function TextInput({
         onKeyDown={onKeyDown}
       />
 
-      {Logo && <Logo className="absolute left-72" />}
+      {Logo && <Logo className="absolute left-48 sm:left-72" />}
     </div>
   );
 }

@@ -9,12 +9,12 @@ function Quickstart({ userSettings, setOpen }) {
     setOpen(page);
   }
   return (
-    <div className="flex flex-col animate-fade-in px-10 h-full">
-      <div className="flex flex-col py-10">
+    <div className="flex flex-col animate-fade-in px-10 h-full items-center lg:items-start text-center sm:text-start">
+      <div className="flex flex-col py-10 items-center lg:items-start">
         {userSettings.logo && (
-          <img className="w-60 mb-8" src={userSettings.logo}></img>
+          <img className="w-50 sm:w-60 mb-8" src={userSettings.logo}></img>
         )}
-        <p className="text-2xl dark:text-main-text font-semibold tracking-wider">
+        <p className="sm:text-2xl text-xl dark:text-main-text font-semibold tracking-wider">
           {userSettings?.name
             ? `Välkommen tillbaka, ${userSettings.name}!`
             : `Välkommen, gå till inställningar för att komma igång!`}
@@ -23,7 +23,7 @@ function Quickstart({ userSettings, setOpen }) {
           <Button
             label={"Inställningar"}
             Logo={Settings}
-            className="bg-main-orange hover:bg-main-orange-hover w-50 h-12 mt-5"
+            className="bg-main-orange hover:bg-main-orange-hover w-50 h-12 mt-5 relative"
             handleClick={() => handleClick("settings")}
           />
         )}

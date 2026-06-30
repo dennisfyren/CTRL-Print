@@ -26,7 +26,7 @@ function Login({ onLogin, resetApp }) {
     <div className="flex flex-col justify-center items-center h-screen animate-fade-in">
       <img
         src={logo}
-        className="w-90 shadow p-12 rounded-2xl bg-main-orange mb-16"
+        className="w-64 sm:w-80 md:w-90 shadow p-12 rounded-2xl bg-main-orange mb-16"
         alt="logo"
       ></img>
       <div className="flex rounded gap-4 justify-center relative">
@@ -35,12 +35,14 @@ function Login({ onLogin, resetApp }) {
             {error}
           </h1>
         )}
-        <div className={`flex gap-6 relative items-start`}>
+        <div
+          className={`flex flex-col md:flex-row gap-6 relative items-center md:items-start`}
+        >
           {!open && (
             <div className={`${error && "animate-bounces"}`}>
               <TextInput
                 label={"Ange lösenord"}
-                className="dark:text-main-text "
+                className="dark:text-main-text"
                 handleChange={(e) => setPassword(e.target.value)}
                 value={password}
                 type="password"
@@ -49,13 +51,15 @@ function Login({ onLogin, resetApp }) {
             </div>
           )}
           {open && (
-            <div className="flex flex-col items-center gap-6 p-2 h-32 w-130 bg-red-900 border border-red-500 rounded dark:text-main-text">
+            <div className="flex flex-col items-center gap-6 p-2 w-80 sm:w-130 bg-red-900 border border-red-500 rounded dark:text-main-text">
               <X
                 className="absolute right-3 cursor-pointer"
                 size={24}
                 onClick={() => handleOpen()}
               />
-              <p className="mt-4">VARNING! Detta kommer att radera all data.</p>
+              <p className="mt-4 mx-4">
+                VARNING! Detta kommer att radera all data.
+              </p>
               <Button
                 label={"Återställ app"}
                 className="bg-red-500 hover:bg-red-600 h-10 w-40"
@@ -74,7 +78,7 @@ function Login({ onLogin, resetApp }) {
           )}
         </div>
       </div>
-      <p className="dark:text-main-text mt-4 cursor-default">
+      <p className="dark:text-main-text mt-4 mx-4 cursor-default">
         Problem med att logga in?{" "}
         <span
           className="italic cursor-pointer text-sm"

@@ -5,7 +5,7 @@ function PreviewCard({
   title = "",
   number,
   data,
-  className = "border border-t-2 mt-1 p-2",
+  className = "sm:border print:border border-t-2 mt-1 p-2",
 }) {
   if (!data) return null;
 

@@ -22,7 +22,7 @@ CTRL+Print is for technicians working with fire and break-in alarms. When the fu
 
 I will update this list progressively.
 
-- [ ] Writing protocols and printing them to PDF.
+- [x] Writing protocols and printing them to PDF.
 - [x] Persistent user settings per device.
 - [ ] Creating custom protocols.
 - [ ] Cloudflare Access. Only authenticated users will have access to the app.
@@ -45,7 +45,11 @@ To run locally you need to download the files, open in terminal, install package
 
 ## Tech stack
 
-CTRL+Print uses Vite with React + TailwindCSS for the frontend. It will be deployed to Cloudflare pages.
+CTRL+Print uses Vite with React + TailwindCSS for the frontend. It will be deployed to Cloudflare pages. 
+
+Packages: 
+-  Lucide-pdf
+-  react-to-print
 
 ## Contributing
 

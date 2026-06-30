@@ -115,10 +115,9 @@ function Preview({ userSettings, page, setOpen, controlType }) {
           ref={printRef}
           style={{
             width: "100%",
-            minHeight: "60vh",
             backgroundColor: "white",
           }}
-          className="px-8 py-5 print:mt-0 text-xs print:shadow-none shadow-xl a4-print"
+          className="px-8 py-5 print:mt-0 print:min-h-0 text-xs print:shadow-none shadow-xl a4-print min-h-screen"
         >
           <div className="flex flex-col sm:grid sm:grid-cols-[1fr_2fr_1fr] print:grid print:grid-cols-[1fr_2fr_1fr] text-center mb-2 items-center print:items-start">
             <img src={logo} className="h-16 my-4 print:my-0 min-w-0"></img>

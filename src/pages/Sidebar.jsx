@@ -81,7 +81,7 @@ function Sidebar({
         </div>
         <Button
           label={"About"}
-          className="ml-auto mr-4 hover:text-main-inactive"
+          className="ml-auto mb-4 mr-4 hover:text-main-inactive"
           handleClick={() => handleNav("about")}
         />
       </div>

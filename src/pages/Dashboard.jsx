@@ -88,7 +88,7 @@ function Dashboard({ isDark, setIsDark, logout, onSet }) {
         onClick={() => setOpen("dashboard")}
       >
         <button
-          className="absolute left-4 text-white"
+          className="absolute w-20 h-full left-4 text-white"
           onClick={(e) => {
             e.stopPropagation();
             setSidebarOpen(true);

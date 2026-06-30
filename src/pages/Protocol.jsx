@@ -16,7 +16,7 @@ function Protocol({ page, userSettings, setOpen }) {
   }
 
   return (
-    <div className="grid grid-cols-1 2xl:grid-cols-2 h-full animate-fade-in">
+    <div className="relative grid grid-cols-1 2xl:grid-cols-2 h-full animate-fade-in">
       <div className="relative 2xl:border-r border-gray-300 dark:border-main-gray-hover py-10 overflow-y-scroll no-scrollbar">
         {page === "fire" && <Brandlarm userSettings={userSettings} />}
         {page === "breakin" && <Inbrottslarm userSettings={userSettings} />}
@@ -27,7 +27,7 @@ function Protocol({ page, userSettings, setOpen }) {
       </div>
       <Button
         label="Reset"
-        className="fixed 2xl:hidden bottom-4 left-4 h-12 w-40 bg-red-500 hover:bg-red-700 z-20"
+        className="fixed lg:absolute lg:bottom-0 bottom-4 left-4 h-12 w-40 bg-red-500 hover:bg-red-700 z-20"
         handleClick={() => setOpenModal((prev) => !prev)}
         Logo={Trash}
       />

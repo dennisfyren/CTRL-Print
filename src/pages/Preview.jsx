@@ -17,7 +17,6 @@ function Preview({ userSettings, page, setOpen, controlType }) {
   const printRef = useRef(null);
   const logo = userSettings?.logo;
   const { setData, data } = useDataContext();
-  const [scale, setScale] = useState(1);
   const [clicked, setClicked] = useState(false);
   const [isDesktop, setIsDesktop] = useState(
     window.matchMedia("(min-width: 1024px)").matches,
@@ -52,13 +51,10 @@ function Preview({ userSettings, page, setOpen, controlType }) {
     switch (type) {
       case "fire":
         return "Revisionsprotokoll Brandlarm";
-        break;
       case "breakin":
         return "Revisionsprotokoll Inbrottslarm";
-        break;
       case "ce":
         return "CE-Märkning";
-        break;
     }
   }
 
@@ -92,31 +88,13 @@ function Preview({ userSettings, page, setOpen, controlType }) {
     topRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
   }, []);
 
-  useEffect(() => {
-    if (!isDesktop) return;
-    const observer = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect;
-      const scaleX = width / A4_WIDTH;
-      const scaleY = height / A4_HEIGHT;
-      setScale(Math.min(scaleX, scaleY, 1)); // never upscale
-    });
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, [isDesktop]);
-
   if (!data) return null;
 
   return (
     <div className="flex flex-col relative h-full w-full animate-fade-in">
       <Button
-        label="Reset"
-        className="fixed sm:top-28 hidden 2xl:block lg:top-6 h-12 w-32 opacity-85 hover:opacity-90 bg-red-500 hover:bg-red-700 z-50"
-        handleClick={resetData}
-        Logo={Trash}
-      />
-      <Button
         label="Tillbaka"
-        className="2xl:hidden fixed bottom-4 sm:top-3 opacity-90 h-12 w-40 bg-gray-500 hover:bg-gray-700 z-50"
+        className="2xl:hidden fixed bottom-4 lg:top-3 opacity-90 h-12 w-40 bg-gray-500 hover:bg-gray-700 z-50"
         handleClick={() => {
           setOpen(page);
         }}
@@ -124,36 +102,22 @@ function Preview({ userSettings, page, setOpen, controlType }) {
       />
       <Button
         label={"Print"}
-        className={`fixed right-4 sm:top-28 bottom-4 lg:top-3 h-12 w-40 opacity-90 sm:opacity-85 hover:opacity-90 ${clicked ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"} z-999`}
+        className={`fixed right-4 bottom-4 lg:top-4 h-12 w-40 opacity-90 sm:opacity-85 hover:opacity-90 ${clicked ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"} z-999`}
         Logo={Printer}
         handleClick={handlePrint}
       />
       <div
         ref={containerRef}
-        className={`flex w-full relative no-scrollbar ${
-          isDesktop
-            ? "items-center justify-center h-full overflow-auto"
-            : "flex-col h-auto overflow-visible"
-        }`}
+        className="flex flex-col w-full h-auto overflow-visible relative no-scrollbar"
       >
         <div ref={topRef} />
         <div
           ref={printRef}
-          style={
-            isDesktop
-              ? {
-                  width: A4_WIDTH,
-                  minHeight: A4_HEIGHT,
-                  transform: `scale(${scale})`,
-                  transformOrigin: "top center",
-                  backgroundColor: "white",
-                }
-              : {
-                  width: "100%",
-                  minHeight: "auto",
-                  backgroundColor: "white",
-                }
-          }
+          style={{
+            width: "100%",
+            minHeight: "60vh",
+            backgroundColor: "white",
+          }}
           className="px-8 py-5 print:mt-0 text-xs print:shadow-none shadow-xl a4-print"
         >
           <div className="flex flex-col sm:grid sm:grid-cols-[1fr_2fr_1fr] print:grid print:grid-cols-[1fr_2fr_1fr] text-center mb-2 items-center print:items-start">

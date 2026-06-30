@@ -55,7 +55,7 @@ function Inbrottslarm({ userSettings }) {
         inputs={[
           { label: "Typ", id: "c-type" },
           { label: "Antal sektioner", id: "c-sections", type: "number" },
-          { label: "Laddspänning", id: "c-charge", extra: "V" },
+          { label: "Laddspänning", id: "c-charge", extra: "V", type: "number" },
           { label: "Version", id: "c-version" },
           {
             label: "Display/Summer",
@@ -158,13 +158,8 @@ function Inbrottslarm({ userSettings }) {
           {
             label: "Övriga styrningar",
             id: "out-other",
-            type: "checkbox",
-            options: [
-              "Kontrollerad OK",
-              "Åtgärd behövs",
-              "Saknas",
-              "Ej aktuellt",
-            ],
+            type: "checkbox-list",
+            options: [],
           },
         ]}
       />
@@ -223,7 +218,7 @@ function Inbrottslarm({ userSettings }) {
             label: "Anläggningsskötarskylt",
             id: "doc-staff",
             type: "checkbox",
-            options: ["Kontrollerad OK", "Åtgärd behövs"],
+            options: ["Kontrollerad OK", "Åtgärd behövs", "Ej aktuellt"],
           },
         ]}
       />

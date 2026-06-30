@@ -54,8 +54,13 @@ function Brandlarm({ userSettings }) {
         inputs={[
           { label: "Typ", id: "c-type" },
           { label: "Antal sektioner", id: "c-sections", type: "number" },
-          { label: "Laddspänning", id: "c-charge", extra: "V" },
-          { label: "Strömförbrukning", id: "c-current", extra: "Ah" },
+          { label: "Laddspänning", id: "c-charge", extra: "V", type: "number" },
+          {
+            label: "Strömförbrukning",
+            id: "c-current",
+            extra: "Ah",
+            type: "number",
+          },
           { label: "Version", id: "c-version" },
           {
             label: "Display/Summer",
@@ -168,13 +173,8 @@ function Brandlarm({ userSettings }) {
           {
             label: "Övriga styrningar",
             id: "out-other",
-            type: "checkbox",
-            options: [
-              "Kontrollerad OK",
-              "Åtgärd behövs",
-              "Saknas",
-              "Ej aktuellt",
-            ],
+            type: "checkbox-list",
+            options: [],
           },
         ]}
       />
@@ -185,8 +185,8 @@ function Brandlarm({ userSettings }) {
           {
             label: "Prov karaktär",
             id: "send-character",
-            type: "checkbox",
-            options: ["Brandlarm", "Fellarm", "Annan"],
+            type: "checkbox-list",
+            options: ["Brandlarm", "Fellarm"],
           },
         ]}
       />

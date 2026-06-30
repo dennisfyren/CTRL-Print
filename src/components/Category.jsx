@@ -368,7 +368,7 @@ function Category({ label, inputs }) {
 
           {/* CHECKBOX-LIST */}
           {input.type === "checkbox-list" && (
-            <div className="ml-5">
+            <div className="ml-1">
               <h1 className="text-xl">{input.label}</h1>
 
               {/* PREDEFINED OPTION CHECKBOXES */}
@@ -385,6 +385,7 @@ function Category({ label, inputs }) {
                   return (
                     <label key={option} className="flex items-center gap-2">
                       <input
+                        className="w-6 h-6 mb-1 accent-main-orange"
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => {
@@ -448,7 +449,7 @@ function Category({ label, inputs }) {
                     <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
                       <label className="flex items-center gap-2">
                         <input
-                          className="w-5 h-5"
+                          className="w-5 h-5 accent-main-orange"
                           type="radio"
                           name={`${input.id}-${index}`}
                           checked={item.status === "Kontrollerad OK"}
@@ -465,7 +466,9 @@ function Category({ label, inputs }) {
                       </label>
                       <label className="flex items-center gap-2 ">
                         <input
+                          className="w-5 h-5 accent-main-orange"
                           type="radio"
+                          id={`${input.id}-${index}`}
                           name={`${input.id}-${index}`}
                           checked={item.status === "Åtgärd behövs"}
                           onChange={() =>
@@ -502,7 +505,7 @@ function Category({ label, inputs }) {
               </div>
 
               {/* ADD CUSTOM ITEM */}
-              <div className="flex mt-3">
+              <div className="flex mt-3 items-center">
                 <TextInput
                   value={listInputs[input.id] ?? ""}
                   label="Annan"

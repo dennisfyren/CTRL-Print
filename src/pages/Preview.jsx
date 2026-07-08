@@ -32,7 +32,7 @@ function Preview({ userSettings, page, setOpen, controlType }) {
   const handlePrint = useReactToPrint({
     contentRef: printRef,
     pageStyle: `
-  @page { 
+  @page {
     size: ${A4_WIDTH}px ${A4_HEIGHT}px;
     margin: 0mm;
   }

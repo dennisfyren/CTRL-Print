@@ -32,16 +32,26 @@ function Preview({ userSettings, page, setOpen, controlType }) {
   const handlePrint = useReactToPrint({
     contentRef: printRef,
     pageStyle: `
-    @page { size: A4; margin: 0; }
-    body { margin: 0 !important; padding: 0 !important; }
-    .preview-card {
-      break-inside: avoid;
+  @page { 
+    size: A4; 
+    margin: 0;
+  }
+  @media print {
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
     }
     .a4-print {
       width: ${A4_WIDTH}px !important;
       transform: none !important;
+      margin: 0 !important;
+      padding-top: 0 !important;
     }
-  `,
+    .preview-card {
+      break-inside: avoid;
+    }
+  }
+`,
   });
 
   function resetData() {
@@ -121,7 +131,7 @@ function Preview({ userSettings, page, setOpen, controlType }) {
             paddingTop: "0",
             top: "0",
           }}
-          className="px-8 py-5 print:mt-0 print:min-h-0 text-xs print:shadow-none shadow-xl a4-print min-h-screen"
+          className="px-8 py-5 print:py-0 print:mt-0 print:min-h-0 text-xs print:shadow-none shadow-xl a4-print min-h-screen"
         >
           <div className="flex flex-col sm:grid sm:grid-cols-[1fr_2fr_1fr] print:grid print:grid-cols-[1fr_2fr_1fr] text-center mb-2 items-center print:items-start">
             <img src={logo} className="h-16 my-4 print:my-0 min-w-0"></img>

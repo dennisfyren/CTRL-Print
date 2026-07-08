@@ -33,6 +33,7 @@ function Preview({ userSettings, page, setOpen, controlType }) {
     contentRef: printRef,
     pageStyle: `
     @page { size: A4; margin: 0; }
+    body { margin: 0 !important; padding: 0 !important; }
     .preview-card {
       break-inside: avoid;
     }
@@ -116,7 +117,9 @@ function Preview({ userSettings, page, setOpen, controlType }) {
           style={{
             width: "100%",
             backgroundColor: "white",
-            marginTop: "0px",
+            marginTop: "0",
+            paddingTop: "0",
+            top: "0",
           }}
           className="px-8 py-5 print:mt-0 print:min-h-0 text-xs print:shadow-none shadow-xl a4-print min-h-screen"
         >

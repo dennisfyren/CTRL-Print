@@ -32,24 +32,23 @@ function Preview({ userSettings, page, setOpen, controlType }) {
   const handlePrint = useReactToPrint({
     contentRef: printRef,
     pageStyle: `
-  @page { 
-    size: A4; 
-    margin: 0;
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: ${A4_WIDTH}px !important;
   }
-  @media print {
-    html, body {
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    .a4-print {
-      width: ${A4_WIDTH}px !important;
-      transform: none !important;
-      margin: 5mm !important;
-      padding-top: 0 !important;
-    }
-    .preview-card {
-      break-inside: avoid;
-    }
+  @page { 
+    size: A4;
+    margin: 0mm;
+  }
+  .a4-print {
+    width: ${A4_WIDTH}px !important;
+    padding: 20px 30px !important;
+    transform: none !important;
+  }
+  .preview-card {
+    break-inside: avoid;
   }
 `,
   });

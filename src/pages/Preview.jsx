@@ -32,15 +32,14 @@ function Preview({ userSettings, page, setOpen, controlType }) {
   const handlePrint = useReactToPrint({
     contentRef: printRef,
     pageStyle: `
-  * { box-sizing: border-box; }
+  @page { 
+    size: ${A4_WIDTH}px ${A4_HEIGHT}px;
+    margin: 0mm;
+  }
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     width: ${A4_WIDTH}px !important;
-  }
-  @page { 
-    size: A4;
-    margin: 0mm;
   }
   .a4-print {
     width: ${A4_WIDTH}px !important;

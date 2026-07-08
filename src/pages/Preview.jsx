@@ -44,7 +44,7 @@ function Preview({ userSettings, page, setOpen, controlType }) {
     .a4-print {
       width: ${A4_WIDTH}px !important;
       transform: none !important;
-      margin: 0 !important;
+      margin: 5mm !important;
       padding-top: 0 !important;
     }
     .preview-card {

@@ -116,6 +116,7 @@ function Preview({ userSettings, page, setOpen, controlType }) {
           style={{
             width: "100%",
             backgroundColor: "white",
+            marginTop: "0px",
           }}
           className="px-8 py-5 print:mt-0 print:min-h-0 text-xs print:shadow-none shadow-xl a4-print min-h-screen"
         >

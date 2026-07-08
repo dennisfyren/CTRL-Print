@@ -48,7 +48,7 @@ To run locally you need to download the files, open in terminal, install package
 CTRL+Print uses Vite with React + TailwindCSS for the frontend. It will be deployed to Cloudflare pages. 
 
 Packages: 
--  Lucide-pdf
+-  Lucide-React
 -  react-to-print
 
 ## Contributing
